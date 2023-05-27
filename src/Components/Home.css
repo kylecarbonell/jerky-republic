@@ -4,13 +4,62 @@
     display: flex;
 }
 
-.Slogan{
+.SloganContainer{
     height: 100%;
     width: 40%;
 
-    /* background-color: black; */
     text-align: left;
-    padding-top: 20%;
-    
+    padding-top: 15%;
+
+    margin-left: 5%;
 }
 
+.Slogan{
+    font-size: 30px;
+    font-size: 3.5vw;
+}
+
+.Description{
+    font-size: 10px;
+    font-size: 1.5vw;
+}
+
+.ContactButton{
+    height: 10%;
+    width: 20%;
+    margin-top: 5%;
+    background-color: var(--yellow);
+    border: 2px;
+    border-radius: 50px;
+}
+
+.Image{
+    height: 50%;
+    width: 100%;
+
+    background-color: black;
+
+    margin-top: 20%;
+}
+
+.Container{
+    display: flex;
+    flex-direction: column;
+}
+
+.InputContainer{
+    margin-left: 2%;
+    width: 100%;
+    margin-top: 5%;
+
+    align-items: center;
+}
+
+.Input{
+    margin-left: 5%;
+    width: 80%;
+}
+
+.TextArea{
+    width: 90%;
+}
