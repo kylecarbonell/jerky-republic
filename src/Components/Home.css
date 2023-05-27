@@ -1,0 +1,16 @@
+.Home{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.Slogan{
+    height: 100%;
+    width: 40%;
+
+    /* background-color: black; */
+    text-align: left;
+    padding-top: 20%;
+    
+}
+

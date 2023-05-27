@@ -1,0 +1,32 @@
+:root{
+  --red : #FE4a49;
+  --blue : #009fb7;
+  --yellow: #fed766;
+  --grey:#D3d3da;
+  --white:#f4f4f8;
+}
+
+.App{
+  position: absolute;
+
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--grey);
+}
+
+.Bar{
+  height: 7%;
+  background-color: var(--red);
+}
+
+.Home{
+  height: 93%;
+
+  background-color: var(--grey);
+}
