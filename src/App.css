@@ -5,8 +5,12 @@
   --grey:#D3d3da;
   --white:#f4f4f8;
 }
+*{
+  background-color: var(--grey);
+} 
 
 .App{
+  /* overflow: auto; */
   position: absolute;
 
   left: 0px;
@@ -25,8 +29,8 @@
   background-color: var(--red);
 }
 
-.Home{
+#Content{
   height: 93%;
-
+  width: 100%;
   background-color: var(--grey);
 }

@@ -27,11 +27,12 @@
     margin-left: 5%;
     margin-right: 40%;
     font-weight: bolder;
+    background-color: var(--red);
 }
 
 .Button{
     height: 100%;
-    width: 7%;
+    width: 100%;
 
     background-color: var(--red);
     color: black;
@@ -45,4 +46,19 @@
 .Button:hover, .Button:focus{
     background-color: var(--darkRed);
     border : none;
+}
+
+.Link{
+    height: 100%;
+    width: 7%;
+
+    background-color: var(--red);
+    color: black;
+    /* margin-right: 2%;     */
+    font-size: large;
+    font-weight: 500;
+
+    border: none;
+    text-decoration: none;
+    color: black;
 }

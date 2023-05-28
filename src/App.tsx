@@ -5,14 +5,12 @@ import Bar from "./Components/Bar";
 import Home from "./Components/Home";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
       <div className="Bar">
         <Bar />
       </div>
-      <div className="Home">
+      <div id="Content">
         <Home />
       </div>
     </div>

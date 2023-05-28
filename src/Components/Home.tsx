@@ -31,7 +31,7 @@ function Home() {
   return (
     <>
       <div className="Home">
-        <Modal show={show} onHide={handleHide}>
+        {/* <Modal show={show} onHide={handleHide}>
           <Modal.Header closeButton>
             <Modal.Title>Contact Us</Modal.Title>
           </Modal.Header>
@@ -59,7 +59,7 @@ function Home() {
             <Button variant="secondary">Close</Button>
             <Button variant="primary">Save changes</Button>
           </Modal.Footer>
-        </Modal>
+        </Modal> */}
 
         <div className="SloganContainer">
           <h1 className="Slogan">Best homemade beef jerky in town!</h1>
@@ -67,13 +67,11 @@ function Home() {
             Original family marinade, full of sweetness and spicyness{" "}
           </h2>
           <button className="ContactButton" onClick={handleClick}>
-            Contacts
+            Shop Now
           </button>
         </div>
 
-        <div>
-          <img className="Image" src="src/Images/BeefJerkyImg.jpeg" />
-        </div>
+        <img className="Pic" src="src\Images\BeefJerkyImg.jpeg" />
       </div>
     </>
   );

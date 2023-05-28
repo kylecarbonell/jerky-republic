@@ -6,7 +6,7 @@
 
 .SloganContainer{
     height: 100%;
-    width: 40%;
+    width: 30%;
 
     text-align: left;
     padding-top: 15%;
@@ -33,13 +33,16 @@
     border-radius: 50px;
 }
 
-.Image{
-    height: 50%;
-    width: 100%;
+.Pic{
+    height: 60%;
+    width: 45%;
 
-    background-color: black;
-
-    margin-top: 20%;
+    /* margin-top: 20%; */
+    margin-left: 15%;
+    margin-top: 8%;
+    margin-bottom: 2%;
+    padding-top: 0;
+    display: block;
 }
 
 .Container{
