@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -66,9 +67,11 @@ function Home() {
           <h2 className="Description">
             Original family marinade, full of sweetness and spicyness{" "}
           </h2>
-          <button className="ContactButton" onClick={handleClick}>
-            Shop Now
-          </button>
+          <Link to="/Shop">
+            <button className="ContactButton" onClick={handleClick}>
+              Shop Now
+            </button>
+          </Link>
         </div>
 
         <img className="Pic" src="src\Images\BeefJerkyImg.jpeg" />

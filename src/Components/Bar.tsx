@@ -14,10 +14,7 @@ function Bar() {
         <Link className="Link" to="/About">
           <button className="Button">About</button>
         </Link>
-        <Link className="Link" to="/">
-          <button className="Button">Flavors</button>
-        </Link>
-        <Link className="Link" to="/">
+        <Link className="Link" to="/Shop">
           <button className="Button">Shop</button>
         </Link>
         <Link className="Link" to="/">
@@ -26,6 +23,13 @@ function Bar() {
         <Link className="Link" to="/">
           <button className="Button">Login</button>
         </Link>
+        <div className="Cart">
+          <Link className="Link" to="/">
+            <button className="Button">
+              <img className="CartImage" src="src\Images\CartImage.jpg"></img>
+            </button>
+          </Link>
+        </div>
       </div>
     </>
   );

@@ -45,6 +45,7 @@
 
 .Button:hover, .Button:focus{
     background-color: var(--darkRed);
+    
     border : none;
 }
 
@@ -62,3 +63,23 @@
     text-decoration: none;
     color: black;
 }
+
+.CartImage{
+    height: 45%;
+    width: auto;
+    background-color: var(--red);
+    margin-left: 5%;
+
+
+}
+
+.CartImage:hover{
+    background-color: var(--darkRed);
+    border : none;
+}
+
+.Cart{
+    height: 100%;
+
+}
+

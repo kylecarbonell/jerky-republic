@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import App from "./App";
 import About from "./Components/About";
-import Home from "./Components/Home";
+import Shop from "./Components/Shop";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -22,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/About",
     element: <About />,
+  },
+  {
+    path: "/Shop",
+    element: <Shop />,
   },
 ]);
 
