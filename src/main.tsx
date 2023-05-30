@@ -7,8 +7,6 @@ import Shop from "./Components/Shop";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { useState } from "react";
-
 import {
   createBrowserRouter,
   RouterProvider,

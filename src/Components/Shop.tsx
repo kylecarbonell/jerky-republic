@@ -9,6 +9,7 @@ import {
   setDoc,
 } from "firebase/firestore";
 import { firestore } from "../Firebase";
+import { useState } from "react";
 
 interface ShopProps {
   name: string;
@@ -37,6 +38,8 @@ function Item(prop: ItemProps) {
 }
 
 function Shop() {
+  const [added, setAdded] = useState(false);
+
   const handleClick = (Name: string) => {
     console.log("Clicked");
 
@@ -44,6 +47,7 @@ function Shop() {
 
     try {
       addDoc(docs, { Item: Name });
+      setAdded(true);
     } catch (e) {
       console.log(e);
     }

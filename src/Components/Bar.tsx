@@ -1,9 +1,23 @@
 import "./Bar.css";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { collection, getCountFromServer } from "firebase/firestore";
+import { firestore } from "../Firebase";
 
 function Bar() {
+  const [cartItems, setCartItems] = useState(0);
+  async function getCount() {
+    const collections = collection(firestore, "Orders", "User", "Cart");
+    const count = await getCountFromServer(collections);
+    return count.data().count;
+  }
+
+  useEffect(() => {
+    const count = getCount();
+    setCartItems(count);
+  });
+
   return (
     <>
       <div className="Bar">
@@ -27,7 +41,9 @@ function Bar() {
         </Link>
         <Link className="Link" to="/">
           <button className="Button">
-            {/* {cartItems >=1 ? <span className="Cart-Dot">{cartItems}</span> : null} */}
+            {cartItems >= 1 ? (
+              <span className="Cart-Dot">{cartItems}</span>
+            ) : null}
 
             <img className="CartImage" src="src\Images\CartImage.jpg"></img>
           </button>
