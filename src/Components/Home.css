@@ -1,0 +1,68 @@
+.Home{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.SloganContainer{
+    height: 100%;
+    width: 30%;
+
+    text-align: left;
+    padding-top: 15%;
+
+    margin-left: 5%;
+}
+
+.Slogan{
+    font-size: 30px;
+    font-size: 3.5vw;
+}
+
+.Description{
+    font-size: 10px;
+    font-size: 1.5vw;
+}
+
+.ContactButton{
+    height: 10%;
+    width: 20%;
+    margin-top: 5%;
+    background-color: var(--yellow);
+    border: 2px;
+    border-radius: 50px;
+}
+
+.Pic{
+    height: 60%;
+    width: 45%;
+
+    /* margin-top: 20%; */
+    margin-left: 15%;
+    margin-top: 8%;
+    margin-bottom: 2%;
+    padding-top: 0;
+    display: block;
+}
+
+.Container{
+    display: flex;
+    flex-direction: column;
+}
+
+.InputContainer{
+    margin-left: 2%;
+    width: 100%;
+    margin-top: 5%;
+
+    align-items: center;
+}
+
+.Input{
+    margin-left: 5%;
+    width: 80%;
+}
+
+.TextArea{
+    width: 90%;
+}
