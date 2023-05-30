@@ -38,16 +38,14 @@ function Item(prop: ItemProps) {
 }
 
 function Shop() {
-  const [added, setAdded] = useState(false);
-
-  const handleClick = (Name: string) => {
+  const handleClick = async (Name: string) => {
     console.log("Clicked");
 
     const docs = collection(firestore, "Orders", "User", "Cart");
 
     try {
-      addDoc(docs, { Item: Name });
-      setAdded(true);
+      await addDoc(docs, { Item: Name });
+      window.location.reload();
     } catch (e) {
       console.log(e);
     }
@@ -65,7 +63,7 @@ function Shop() {
         <div className="ShopApp">
           {/* <h1>{props.name}  </h1> */}
           <Item
-            Name="props"
+            Name="Original"
             // Name={props.name}
             src="src\Images\AboutUsImage.JPG"
             Description="Embark on a flavor adventure that combines the best of 

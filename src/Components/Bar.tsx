@@ -7,15 +7,17 @@ import { firestore } from "../Firebase";
 
 function Bar() {
   const [cartItems, setCartItems] = useState(0);
-  async function getCount() {
-    const collections = collection(firestore, "Orders", "User", "Cart");
-    const count = await getCountFromServer(collections);
-    return count.data().count;
-  }
 
   useEffect(() => {
-    const count = getCount();
-    setCartItems(count);
+    console.log("Finding");
+    async function getCount() {
+      const collections = collection(firestore, "Orders", "User", "Cart");
+      console.log("In Func");
+      const count = await getCountFromServer(collections);
+      setCartItems(count.data().count);
+      console.log("count   :   " + cartItems);
+    }
+    getCount();
   });
 
   return (
