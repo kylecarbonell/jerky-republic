@@ -4,9 +4,11 @@ import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { collection, getCountFromServer } from "firebase/firestore";
 import { firestore } from "../Firebase";
+import ContactModal from "./Modal";
 
 function Bar() {
   const [cartItems, setCartItems] = useState(0);
+  const [showContact, setContact] = useState(false);
 
   useEffect(() => {
     console.log("Finding");
@@ -20,6 +22,10 @@ function Bar() {
     getCount();
   });
 
+  const onClickContact = () => {
+    setContact(!showContact);
+  };
+
   return (
     <>
       <div className="Bar">
@@ -32,15 +38,17 @@ function Bar() {
         <Link className="Link" to="/About">
           <button className="Button">About</button>
         </Link>
-        <Link className="Link" to="/Shop" state={{ data: "Hi" }}>
+        <Link className="Link" to="/Shop">
           <button className="Button">Shop</button>
         </Link>
-        <Link className="Link" to="/">
-          <button className="Button">Contact</button>
-        </Link>
-        <Link className="Link" to="/">
-          <button className="Button">Login</button>
-        </Link>
+        {/* <Link className="Link" to="/"> */}
+        <button className="Link Button" onClick={onClickContact}>
+          Contact
+        </button>
+        {/* </Link>
+        <Link className="Link" to="/"> */}
+        <button className="Link Button">Login</button>
+        {/* </Link> */}
         <Link className="Link" to="/">
           <button className="Button">
             {cartItems >= 1 ? (
@@ -51,6 +59,8 @@ function Bar() {
           </button>
         </Link>
       </div>
+
+      <ContactModal show={showContact} setShow={setContact} />
     </>
   );
 }

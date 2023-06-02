@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import "./App.css";
 import Bar from "./Components/Bar";
 import Home from "./Components/Home";
-
+import ContactModal from "./Components/Modal";
 function App() {
   return (
     <div className="App">

@@ -1,0 +1,14 @@
+.Container{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0,0,0,.0001) !important;
+}
+
+.InputContainer{
+    margin-left: 2%;
+    width: 100%;
+    margin-top: 5%;
+    background-color: rgba(0,0,0,0) !important;
+
+    align-items: center;
+}
