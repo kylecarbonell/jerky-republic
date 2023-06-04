@@ -44,8 +44,14 @@ function Shop() {
     const docs = collection(firestore, "Orders", "User", "Cart");
 
     try {
-      await addDoc(docs, { Item: Name });
-      window.location.reload();
+      await addDoc(docs, { Item: Name }).then(() => {
+        window.location.reload();
+      })
+        .catch((error) => {
+          console.log(error)
+        });
+
+
     } catch (e) {
       console.log(e);
     }
@@ -61,7 +67,6 @@ function Shop() {
         </div>
 
         <div className="ShopApp">
-          {/* <h1>{props.name}  </h1> */}
           <Item
             Name="Original"
             // Name={props.name}

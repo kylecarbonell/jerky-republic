@@ -58,7 +58,8 @@
     background-color: var(--red);
     color: black;
     /* margin-right: 2%;     */
-    font-size: large;
+    font-size: 30px;
+    font-size: 1vw;
     font-weight: 500;
 
     border: none;

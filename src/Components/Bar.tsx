@@ -1,24 +1,23 @@
 import "./Bar.css";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { collection, getCountFromServer } from "firebase/firestore";
 import { firestore } from "../Firebase";
 import ContactModal from "./Modal";
 
 function Bar() {
   const [cartItems, setCartItems] = useState(0);
+  let tempCartItems = useRef<number>(0);
   const [showContact, setContact] = useState(false);
 
   useEffect(() => {
-    console.log("Finding");
     async function getCount() {
       const collections = collection(firestore, "Orders", "User", "Cart");
-      console.log("In Func");
       const count = await getCountFromServer(collections);
-      setCartItems(count.data().count);
-      console.log("count   :   " + cartItems);
+      tempCartItems.current = count.data().count;
     }
+    setCartItems(tempCartItems.current.valueOf());
     getCount();
   });
 
@@ -41,15 +40,11 @@ function Bar() {
         <Link className="Link" to="/Shop">
           <button className="Button">Shop</button>
         </Link>
-        {/* <Link className="Link" to="/"> */}
         <button className="Link Button" onClick={onClickContact}>
           Contact
         </button>
-        {/* </Link>
-        <Link className="Link" to="/"> */}
         <button className="Link Button">Login</button>
-        {/* </Link> */}
-        <Link className="Link" to="/">
+        <Link className="Link" to="/Cart">
           <button className="Button">
             {cartItems >= 1 ? (
               <span className="Cart-Dot">{cartItems}</span>

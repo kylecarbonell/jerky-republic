@@ -1,0 +1,53 @@
+:root{
+    --red : #FE4a49;
+    --blue : #009fb7;
+    --yellow: #fed766;
+    --grey:#D3d3da;
+    --white:#f4f4f8;
+  }
+
+.Cart{
+    height: 100%;
+    width: 100%;
+    /* background-color: black; */
+    display: flex;
+    flex-direction: row;
+}
+
+.Cart-Holder{
+    margin-top: 3%;
+    height: 75%;
+    width: 65%;
+    margin-left: 5%;
+    margin-right: 2.5%;
+    outline: 2px solid black;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.Payment-Holder{
+    width: 25%;
+    height: 45%;
+    margin-top: 3%;
+    margin-right: 2%;
+    outline: 2px solid black;
+    border-radius: 15px;
+}
+
+.Payment-Description{
+    margin: 3%;
+    font-size: 30px;
+    font-size: 2.5vw;
+}
+
+.Payment-Items{
+    font-size: 30px;
+    font-size: 1.3vw;
+    margin-top: 7%;
+}
+
+.Payment-Button{
+    background-color: var(--blue);
+}

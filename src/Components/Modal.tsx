@@ -1,6 +1,7 @@
 import { Modal, Button } from "react-bootstrap";
 import { useRef, useState } from "react";
-// import "./Home.css";
+import "./Home.css";
+import "./Modal.css"
 
 interface Props {
   show: boolean;
@@ -31,29 +32,30 @@ function ContactModal(props: Props) {
   return (
     <>
       <Modal
-        className="background-color: rgba(0,0,0,.0001) !important;"
+        id="Modal-Part"
+        className="Modal"
         show={props.show}
         onHide={handleHide}
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Contact Us</Modal.Title>
+        <Modal.Header closeButton id="Modal-Part">
+          <Modal.Title id="Modal-Part">Contact Us</Modal.Title>
         </Modal.Header>
 
-        <Modal.Body>
-          <div className="Container">
-            <div className="InputContainer">
-              <label>Name : </label>
-              <input className="Input" ref={nameRef} />
+        <Modal.Body id="Modal-Part">
+          <div className="Container" id="Modal-Part">
+            <div className="InputContainer" id="Modal-Part">
+              <label id="Modal-Part">Name : </label>
+              <input id="Modal-Part" className="Input" ref={nameRef} />
             </div>
 
-            <div className="InputContainer">
-              <label>Email : </label>
-              <input className="Input" ref={emailRef} />
+            <div className="InputContainer" id="Modal-Part">
+              <label id="Modal-Part">Email : </label>
+              <input id="Modal-Part" className="Input" ref={emailRef} />
             </div>
 
-            <div className="InputContainer">
-              <label>Questions Concerns : </label>
-              <textarea className="TextArea" />
+            <div className="InputContainer" id="Modal-Part">
+              <label id="Modal-Part">Questions Concerns : </label>
+              <textarea id="Modal-Part" className="TextArea" />
             </div>
           </div>
         </Modal.Body>

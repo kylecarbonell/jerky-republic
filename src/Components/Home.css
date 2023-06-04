@@ -51,21 +51,3 @@
     display: flex;
     flex-direction: column;
 }
-
-.InputContainer{
-    margin-left: 2%;
-    width: 100%;
-    margin-top: 5%;
-    
-
-    align-items: center;
-}
-
-.Input{
-    margin-left: 5%;
-    width: 80%;
-}
-
-.TextArea{
-    width: 90%;
-}
