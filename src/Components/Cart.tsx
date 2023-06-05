@@ -14,7 +14,19 @@ interface ItemProps {
 }
 
 function Item(props: ItemProps) {
-    return <h1>{props.itemName}</h1>
+    return (<>
+        <div className="Item-Holder">
+            <div className="Item-Picture-Holder">
+                <img className="Item-Picture" src="src/Images/AboutUsImage.JPG"></img>
+            </div>
+            <div className="Item-Name-Holder">
+                <h1 >{props.itemName}</h1>
+            </div>
+            <div className="Item-Price-Holder">
+                <h1 >Price</h1>
+            </div>
+        </div>
+    </>)
 }
 
 
@@ -42,9 +54,10 @@ function Cart() {
 
     useEffect(() => {
         async function CalculateSum() {
-            console.log("Rendered");
+            // console.log("Rendered");
             const docs = await GetDoc();
             tempSum.current = 0;
+            setItems([])
             docs.forEach((doc) => {
                 items.push(doc.get('Item'))
                 const name = doc.get("Item");
@@ -58,15 +71,13 @@ function Cart() {
                     tempSum.current += priceOriginal;
                 }
             })
-            console.log(items)
-            setSum(tempSum.current.valueOf());
+            // console.log(items)  
         }
 
         CalculateSum();
-        setTax(sum * priceTax);
         setItems(tempItems);
 
-    })
+    }, [])
 
     return (
         <>
@@ -77,29 +88,17 @@ function Cart() {
 
                 <div className="Cart">
                     <div className="Cart-Holder">
-                        {
-                            (items.map((doc) => {
-                                let price = 0;
-                                if (doc == "Fire") {
-                                    price = priceFire;
-                                }
-                                else if (doc == "Mild") {
-                                    price = priceMild;
-                                }
-                                else {
-                                    price = priceOriginal;
-                                }
-                                console.log(doc)
-                                return <Item itemName={doc} itemPrice={price} />
-                            }))
-                        }
+                        <Item itemName="Fire" itemPrice={priceOriginal}></Item>
+                        <Item itemName="Original" itemPrice={priceOriginal}></Item>
+                        <Item itemName="Mild" itemPrice={priceOriginal}></Item>
+
                     </div>
                     <div className="Payment-Holder">
                         <div className="Payment-Description">
                             <h1>Order Summary</h1>
-                            <p className="Payment-Items">Items : ${sum}</p>
-                            <p className="Payment-Items">Shipping and Handling : ${tax}</p>
-                            <p className="Payment-Items">Total : ${sum + tax}</p>
+                            <p className="Payment-Items">Items : ${tempSum.current.valueOf()}</p>
+                            <p className="Payment-Items">Shipping and Handling : ${(tempSum.current.valueOf() * priceTax).toFixed(2)}</p>
+                            <p className="Payment-Items">Total : ${tempSum.current.valueOf() + (tempSum.current.valueOf() * priceTax)}</p>
                             <Button className="Payment-Button">Place your order</Button>
                         </div>
 
