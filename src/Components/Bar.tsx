@@ -2,22 +2,33 @@ import "./Bar.css";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useEffect, useRef, useState } from "react";
-import { collection, getCountFromServer } from "firebase/firestore";
+import {
+  collection,
+  getCountFromServer,
+  getDoc,
+  getDocs,
+} from "firebase/firestore";
 import { firestore } from "../Firebase";
 import ContactModal from "./Modal";
 
 function Bar() {
   const [cartItems, setCartItems] = useState(0);
-  let tempCartItems = useRef<number>(0);
+  const cartCount = useRef<number>(0);
   const [showContact, setContact] = useState(false);
 
+  //CHECK THIS LATER
   useEffect(() => {
     async function getCount() {
+      cartCount.current = 0;
+      setCartItems(0);
       const collections = collection(firestore, "Orders", "User", "Cart");
-      const count = await getCountFromServer(collections);
-      tempCartItems.current = count.data().count;
+      const docs = await getDocs(collections);
+      docs.forEach((doc) => {
+        console.log(doc.get("Quantity"));
+        cartCount.current += doc.get("Quantity");
+      });
+      setCartItems(cartCount.current);
     }
-    setCartItems(tempCartItems.current.valueOf());
     getCount();
   }, []);
 
@@ -49,7 +60,6 @@ function Bar() {
             {cartItems >= 1 ? (
               <span className="Cart-Dot">{cartItems}</span>
             ) : null}
-
             <img className="CartImage" src="src\Images\CartImage.jpg"></img>
           </button>
         </Link>

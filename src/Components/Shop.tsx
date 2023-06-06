@@ -6,7 +6,9 @@ import {
   collection,
   doc,
   getFirestore,
+  increment,
   setDoc,
+  updateDoc,
 } from "firebase/firestore";
 import { firestore } from "../Firebase";
 import { useState } from "react";
@@ -41,17 +43,16 @@ function Shop() {
   const handleClick = async (Name: string) => {
     console.log("Clicked");
 
-    const docs = collection(firestore, "Orders", "User", "Cart");
+    const docs = doc(firestore, "Orders", "User", "Cart", Name);
 
     try {
-      await addDoc(docs, { Item: Name }).then(() => {
-        window.location.reload();
-      })
+      await updateDoc(docs, { Quantity: increment(1) })
+        .then(() => {
+          window.location.reload();
+        })
         .catch((error) => {
-          console.log(error)
+          console.log(error);
         });
-
-
     } catch (e) {
       console.log(e);
     }
