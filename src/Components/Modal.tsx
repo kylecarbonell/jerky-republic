@@ -1,7 +1,7 @@
 import { Modal, Button } from "react-bootstrap";
 import { useRef, useState } from "react";
 import "./Home.css";
-import "./Modal.css"
+import "./Modal.css";
 
 interface Props {
   show: boolean;
