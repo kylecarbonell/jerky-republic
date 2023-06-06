@@ -23,8 +23,9 @@
     outline: 2px solid black;
     border-radius: 15px;
 
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 33% 33% 33%;
 }
 
 .Payment-Holder{
@@ -50,4 +51,47 @@
 
 .Payment-Button{
     background-color: var(--blue);
+}
+
+.Item-Holder{
+    height: 100%;
+    width: 100%;
+
+    /* background-color: black; */
+    align-self: center;
+
+    display: grid;
+    grid-template-columns: 20% 50% 20%;
+
+    grid-template-areas: 
+        'picture name  price',
+        'picture name price',
+        'picture name price';
+
+    row-gap: 5px;
+    justify-content: space-evenly;
+}
+
+.Item-Name-Holder{
+    /* margin-left: 5%; */
+    margin-top: 3%;
+
+    /* background-color: black; */
+    grid-area : 'name';
+}
+
+.Item-Picture-Holder{
+    grid-area: 'picture';
+    /* background-color: blue; */
+}
+
+.Item-Picture{
+    height: auto;
+    width: 70% ;
+    object-fit: contain;
+}
+
+.Item-Price-Holder{
+    grid-area: 'price';
+    /* background-color: greenyellow; */
 }

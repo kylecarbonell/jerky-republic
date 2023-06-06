@@ -19,7 +19,7 @@ function Bar() {
     }
     setCartItems(tempCartItems.current.valueOf());
     getCount();
-  });
+  }, []);
 
   const onClickContact = () => {
     setContact(!showContact);
