@@ -40,6 +40,16 @@ function Item(prop: ItemProps) {
 }
 
 function Shop() {
+  const handler = async (Name: String) => {
+    const data = { Name };
+    await fetch("http://localhost:8000/shop", {
+      method: "post",
+      body: JSON.stringify(data),
+    } as RequestInit).then(() => {
+      console.log("Sent");
+    }).catch((error) => { console.log(error) });
+  }
+
   const handleClick = async (Name: string) => {
     console.log("Clicked");
 
@@ -76,7 +86,7 @@ function Shop() {
             both worlds in every bite! Sweet 'n tangy fusion beef jerky is a 
             delightful fusion of sweet and tangy flavors that will tantalize 
             your taste buds like never before."
-            onClick={handleClick}
+            onClick={handler}
           />
           <Item
             Name="Mild"
