@@ -13,10 +13,11 @@ const PORT = 8000;
 
 app.post("/shop", async (req, res) => {
   const body = req.body.Name;
+  const amount = req.body.Amount;
   console.log(body);
 
   const user = { Name: "Kyle" };
-  const command = { $inc: { [body]: 1 } };
+  const command = { $inc: { [body]: amount } };
   let result = await db.collection("Orders").updateOne(user, command);
   res.send(result).status(200);
 });

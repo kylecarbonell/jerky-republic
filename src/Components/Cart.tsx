@@ -43,7 +43,7 @@ function Cart() {
                   //     </option>
                   //   );
                   // } else {
-                  return <option value={num}>{num}</option>;
+                  return <option value={num}> {num}</option>;
                   // }
                 })}
               </select>
