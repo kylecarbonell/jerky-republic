@@ -26,31 +26,38 @@ interface ItemProps {
   onClick: (Name: string) => void;
 }
 
-
-
 function Shop() {
-  const handleClick = async (Name: String) => {
-    const data = { Name };
+  const handleClick = async (Name: String, Amount: number) => {
+    const data = { Name, Amount };
     await fetch("http://localhost:8000/shop", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
-    } as RequestInit).then(() => {
-      console.log("Sent");
-    }).catch((error) => { console.log(error) });
-  }
+    } as RequestInit)
+      .then(() => {
+        console.log("Sent");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-  const amounts = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  const [amount, setAmount] = useState([0, 0, 0])
+  const amounts = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const [amount, setAmount] = useState({
+    original: 0,
+    fire: 0,
+    mild: 0,
+  });
 
-  const handleChange = (e: any, name: string) => {
-    console.log(amount)
-    setAmount(e.target.value)
-
-  }
+  const handleChange = (e: any, Name: number) => {
+    const updatedValue = { Name: e.target.value };
+    // setAmount(() => {
+    //   ...amount,
+    //   ...updatedValue;
+    // });
+  };
 
   function Item(prop: ItemProps) {
-
     return (
       <>
         <div className="Item">
@@ -58,22 +65,28 @@ function Shop() {
           <img className="Item-Image" src={prop.src} />
           <p className="Item-Description">{prop.Description}</p>
           <div className="Item-Buttons">
-            <button className="Item-Button" onClick={() => prop.onClick(prop.Name)}>
+            <button
+              className="Item-Button"
+              onClick={() => prop.onClick(prop.Name)}
+            >
               Add to cart
             </button>
-            <select className="Item-Amount" value={amount[prop.Key]} onChange={(e) => {
-              handleChange(e, prop.Name)
-            }}>
+            <select
+              className="Item-Amount"
+              value={amount[prop.Key]}
+              onChange={(e) => {
+                handleChange(e, prop.Key);
+              }}
+            >
               {amounts.map((num) => {
                 return <option value={num}>{num}</option>;
               })}
             </select>
           </div>
-        </div >
+        </div>
       </>
     );
   }
-
 
   return (
     <>
