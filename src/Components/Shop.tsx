@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { firestore } from "../Firebase";
 import { useState } from "react";
+import { Dropdown } from "react-bootstrap";
 
 interface ShopProps {
   name: string;
@@ -21,54 +22,58 @@ interface ItemProps {
   Name: string;
   src: string;
   Description: string;
+  Key: number;
   onClick: (Name: string) => void;
 }
 
-function Item(prop: ItemProps) {
-  return (
-    <>
-      <div className="Item">
-        <h1>{prop.Name}</h1>
-        <img className="Item-Image" src={prop.src} />
-        <p className="Item-Description">{prop.Description}</p>
-        <button className="Item-Button" onClick={() => prop.onClick(prop.Name)}>
-          Add to cart
-        </button>
-      </div>
-    </>
-  );
-}
+
 
 function Shop() {
-  const handler = async (Name: String) => {
+  const handleClick = async (Name: String) => {
     const data = { Name };
     await fetch("http://localhost:8000/shop", {
       method: "post",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     } as RequestInit).then(() => {
       console.log("Sent");
     }).catch((error) => { console.log(error) });
   }
 
-  const handleClick = async (Name: string) => {
-    console.log("Clicked");
+  const amounts = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  const [amount, setAmount] = useState([0, 0, 0])
 
-    const docs = doc(firestore, "Orders", "User", "Cart", Name);
+  const handleChange = (e: any, name: string) => {
+    console.log(amount)
+    setAmount(e.target.value)
 
-    try {
-      await updateDoc(docs, { Quantity: increment(1) })
-        .then(() => {
-          window.location.reload();
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } catch (e) {
-      console.log(e);
-    }
+  }
 
-    return;
-  };
+  function Item(prop: ItemProps) {
+
+    return (
+      <>
+        <div className="Item">
+          <h1>{prop.Name}</h1>
+          <img className="Item-Image" src={prop.src} />
+          <p className="Item-Description">{prop.Description}</p>
+          <div className="Item-Buttons">
+            <button className="Item-Button" onClick={() => prop.onClick(prop.Name)}>
+              Add to cart
+            </button>
+            <select className="Item-Amount" value={amount[prop.Key]} onChange={(e) => {
+              handleChange(e, prop.Name)
+            }}>
+              {amounts.map((num) => {
+                return <option value={num}>{num}</option>;
+              })}
+            </select>
+          </div>
+        </div >
+      </>
+    );
+  }
+
 
   return (
     <>
@@ -86,7 +91,8 @@ function Shop() {
             both worlds in every bite! Sweet 'n tangy fusion beef jerky is a 
             delightful fusion of sweet and tangy flavors that will tantalize 
             your taste buds like never before."
-            onClick={handler}
+            onClick={handleClick}
+            key={0}
           />
           <Item
             Name="Mild"
@@ -96,6 +102,7 @@ function Shop() {
             caters to those who prefer a milder taste experience without 
             compromising on quality or satisfaction."
             onClick={handleClick}
+            key={1}
           />
           <Item
             Name="Fire"
@@ -105,6 +112,7 @@ function Shop() {
           your snacking routine. The finest cuts of premium beef,
           marinated in a secret blend of scorching spices."
             onClick={handleClick}
+            key={2}
           />
         </div>
       </div>
