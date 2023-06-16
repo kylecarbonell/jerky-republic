@@ -92,7 +92,7 @@ function Shop() {
             delightful fusion of sweet and tangy flavors that will tantalize 
             your taste buds like never before."
             onClick={handleClick}
-            key={0}
+            Key={0}
           />
           <Item
             Name="Mild"
@@ -102,7 +102,7 @@ function Shop() {
             caters to those who prefer a milder taste experience without 
             compromising on quality or satisfaction."
             onClick={handleClick}
-            key={1}
+            Key={1}
           />
           <Item
             Name="Fire"
@@ -112,7 +112,7 @@ function Shop() {
           your snacking routine. The finest cuts of premium beef,
           marinated in a secret blend of scorching spices."
             onClick={handleClick}
-            key={2}
+            Key={2}
           />
         </div>
       </div>
