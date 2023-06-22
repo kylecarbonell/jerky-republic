@@ -14,11 +14,25 @@ const PORT = 8000;
 app.post("/shop", async (req, res) => {
   const body = req.body.Name;
   const amount = req.body.Amount;
+  const _id = req.body._id;
   console.log(body);
 
-  const user = { Name: "Kyle" };
-  const command = { $inc: { [body]: amount } };
-  let result = await db.collection("Orders").updateOne(user, command);
+  if (_id != undefined) {
+    const user = { _id: _id };
+    const command = { $inc: { [body]: amount } };
+    let result = await db.collection("Orders").updateOne(user, command);
+    res.send(result).status(200);
+  }
+});
+
+app.post("/signup", async (req, res) => {
+  const body = req.body;
+  console.log(body);
+  const result = await db.collection("Users").insertOne(body);
+  const result2 = await db
+    .collection("Orders")
+    .insertOne({ _id: body._id, Fire: 0, Original: 0, Mild: 0 });
+  console.log(body._id.toString());
   res.send(result).status(200);
 });
 

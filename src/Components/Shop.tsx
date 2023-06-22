@@ -35,7 +35,8 @@ function Shop() {
   });
 
   const handleClick = async (Name: string, Amount: number) => {
-    const data = { Name, Amount };
+    const _id = window.localStorage.getItem("AppId")
+    const data = { Name, Amount, _id };
     await fetch("http://localhost:8000/shop", {
       method: "post",
       headers: { "Content-Type": "application/json" },

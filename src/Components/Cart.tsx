@@ -36,15 +36,7 @@ function Cart() {
             <div className="Item-Name-Option">
               <select defaultValue={props.itemCount}>
                 {amount.map((num) => {
-                  // if (num == props.itemCount) {
-                  //   return (
-                  //     <option value={num} selected={true}>
-                  //       {num}
-                  //     </option>
-                  //   );
-                  // } else {
                   return <option value={num}> {num}</option>;
-                  // }
                 })}
               </select>
             </div>
