@@ -20,7 +20,7 @@ app.post("/shop", async (req, res) => {
   let result = await db.collection("Orders").updateOne(user, command);
   res.send(result).status(200);
 });
-
+  q
 app.listen(PORT, () => {
   console.log("Server running on port " + PORT);
 });
