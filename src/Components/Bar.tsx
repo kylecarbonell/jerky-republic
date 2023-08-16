@@ -10,24 +10,36 @@ import {
 } from "firebase/firestore";
 import { firestore } from "../Firebase";
 import ContactModal from "./Modal";
+import LoginModal from "./LoginModal";
 
 function Bar() {
   const [cartItems, setCartItems] = useState(0);
   const cartCount = useRef<number>(0);
   const [showContact, setContact] = useState(false);
+  const [showLogin, setLogin] = useState(false);
+
 
   //CHECK THIS LATER
   useEffect(() => {
     async function getCount() {
       cartCount.current = 0;
       setCartItems(0);
-      const collections = collection(firestore, "Orders", "User", "Cart");
-      const docs = await getDocs(collections);
-      docs.forEach((doc) => {
-        console.log(doc.get("Quantity"));
-        cartCount.current += doc.get("Quantity");
-      });
-      setCartItems(cartCount.current);
+      // const collections = collection(firestore, "Orders", "User", "Cart");
+      // const docs = await getDocs(collections);
+
+      // if (app.currentUser != null) {
+      //   const getOrders = await fetch(`http://localhost:8000/orders?id=${app.currentUser.id}`)
+      //   if (!getOrders.ok) {
+      //     alert("Error getting orders")
+      //     return;
+      //   }
+
+      //   const orders = await getOrders.json()
+      //   console.log(orders)
+      //   // setCartItems(cartCount.current);
+      // }
+
+
     }
     getCount();
   }, []);
@@ -35,6 +47,10 @@ function Bar() {
   const onClickContact = () => {
     setContact(!showContact);
   };
+
+  const onClickLogin = () => {
+    setLogin(!showLogin)
+  }
 
   return (
     <>
@@ -54,7 +70,7 @@ function Bar() {
         <button className="Link Button" onClick={onClickContact}>
           Contact
         </button>
-        <button className="Link Button">Login</button>
+        <button className="Link Button" onClick={onClickLogin}>Login</button>
         <Link className="Link" to="/Cart">
           <button className="Button">
             {cartItems >= 1 ? (
@@ -66,6 +82,7 @@ function Bar() {
       </div>
 
       <ContactModal show={showContact} setShow={setContact} />
+      <LoginModal show={showLogin} setShow={setLogin} />
     </>
   );
 }

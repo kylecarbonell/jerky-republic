@@ -27,37 +27,59 @@ interface ItemProps {
 }
 
 function Shop() {
-  const handleClick = async (Name: String, Amount: number) => {
-    const data = { Name, Amount };
+  const amounts = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const [amount, setAmount] = useState({
+    Original: 0,
+    Fire: 0,
+    Mild: 0,
+  });
+
+  const handleClick = async (Name: string, Amount: number) => {
+    const _id = window.localStorage.getItem("AppId")
+    const data = { Name, Amount, _id };
     await fetch("http://localhost:8000/shop", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     } as RequestInit)
       .then(() => {
-        console.log("Sent");
+        console.log("sent")
+        const updatedValue = { [Name]: 0 };
+        setAmount(amount => ({
+          ...amount,
+          ...updatedValue
+        }));
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  const amounts = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const [amount, setAmount] = useState({
-    original: 0,
-    fire: 0,
-    mild: 0,
-  });
 
-  const handleChange = (e: any, Name: number) => {
-    const updatedValue = { Name: e.target.value };
-    // setAmount(() => {
-    //   ...amount,
-    //   ...updatedValue;
-    // });
-  };
+
 
   function Item(prop: ItemProps) {
+    let value = 0
+    if (prop.Name == "Fire") {
+      value = amount.Fire;
+    }
+    else if (prop.Name == "Original") {
+      value = amount.Original
+    }
+    else {
+      value = amount.Mild
+    }
+
+    const handleChange = (e: any, Name: string) => {
+      const updatedValue = { [Name]: Number(e.target.value) };
+      setAmount(amount => ({
+        ...amount,
+        ...updatedValue
+      }));
+
+      console.log(amount)
+  };
+
     return (
       <>
         <div className="Item">
@@ -73,9 +95,9 @@ function Shop() {
             </button>
             <select
               className="Item-Amount"
-              value={amount[prop.Key]}
+              value={value}
               onChange={(e) => {
-                handleChange(e, prop.Key);
+                handleChange(e, prop.Name);
               }}
             >
               {amounts.map((num) => {
@@ -104,7 +126,9 @@ function Shop() {
             both worlds in every bite! Sweet 'n tangy fusion beef jerky is a 
             delightful fusion of sweet and tangy flavors that will tantalize 
             your taste buds like never before."
-            onClick={handleClick}
+            onClick={(e) => {
+              handleClick(e, amount.Original)
+            }}
             Key={0}
           />
           <Item
@@ -114,7 +138,9 @@ function Shop() {
             a gentle touch. Our mild beef jerky is a savory snack that 
             caters to those who prefer a milder taste experience without 
             compromising on quality or satisfaction."
-            onClick={handleClick}
+            onClick={(e) => {
+              handleClick(e, amount.Mild)
+            }}
             Key={1}
           />
           <Item
@@ -124,7 +150,9 @@ function Shop() {
           Our fire flavor is a sizzling hot beef jerky that brings the heat to
           your snacking routine. The finest cuts of premium beef,
           marinated in a secret blend of scorching spices."
-            onClick={handleClick}
+            onClick={(e) => {
+              handleClick(e, amount.Fire)
+            }}
             Key={2}
           />
         </div>
