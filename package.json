@@ -1,12 +1,10 @@
 {
-  "homepage": "https://kylecarbonell.github.io/",
+  "homepage": "https://kylecarbonell.github.io/jerky-republic/",
   "name": "jerkyrepublic",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "nodemon server/index.mjs",
     "dev": "vite",
     "build": "tsc && vite build",
