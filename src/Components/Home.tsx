@@ -8,8 +8,8 @@ import ContactModal from "./Modal";
 function Home() {
   return (
     <>
-      <div className="Home">
-        <div className="SloganContainer">
+      <div className="Home-Container">
+        <div className="Slogan-Container">
           <h1 className="Slogan">Best homemade beef jerky in town!</h1>
           <h2 className="Description">
             Original family marinade, full of sweetness and spicyness{" "}

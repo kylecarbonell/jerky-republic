@@ -1,53 +1,50 @@
-.Home{
-    height: 100%;
-    width: 100%;
-    display: flex;
+.Home-Container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.SloganContainer{
-    height: 100%;
-    width: 30%;
+.Slogan-Container {
+  width: 500px;
 
-    text-align: left;
-    padding-top: 15%;
+  max-height: 600px;
+  max-width: 500px;
 
-    margin-left: 5%;
+  text-align: left;
+
+  /* background-color: black; */
+  vertical-align: middle;
 }
 
-.Slogan{
-    font-size: 30px;
-    font-size: 3.5vw;
+.Slogan {
+  font-size: 30px;
+  font-size: 4vw;
 }
 
-.Description{
-    font-size: 10px;
-    font-size: 1.5vw;
+.Description {
+  font-size: 10px;
+  font-size: 1.5vw;
 }
 
-.ContactButton{
-    height: 10%;
-    width: 20%;
-    margin-top: 5%;
-    background-color: var(--yellow);
-    border: 2px;
-    border-radius: 50px;
+.ContactButton {
+  height: 10%;
+  width: 20%;
+  margin-top: 5%;
+  background-color: var(--yellow);
+  border: 2px;
+  border-radius: 50px;
 
-    font-size: 30px;
-    font-size: 1vw;
+  font-size: 30px;
+  font-size: 1vw;
 }
 
-.Pic{
-    height: 30vw;
-    width: 45vw;
+.Pic {
+  width: 900px;
+  max-height: 600px;
+  max-width: 75%;
 
-    margin-left: 15%;
-    margin-top: 8%;
-    margin-bottom: 2%;
-    padding-top: 0;
-    display: block;
-}
-
-.Container{
-    display: flex;
-    flex-direction: column;
+  background-color: black;
 }

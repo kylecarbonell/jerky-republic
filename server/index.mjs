@@ -35,7 +35,7 @@ app.post("/signup", async (req, res) => {
   console.log(body._id.toString());
   res.send(result).status(200);
 });
-  q
+
 app.listen(PORT, () => {
   console.log("Server running on port " + PORT);
 });
