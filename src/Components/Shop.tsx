@@ -13,6 +13,7 @@ import {
 import { firestore } from "../Firebase";
 import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
+import Image from "../Images/AboutUsImage.jpeg";
 
 interface ShopProps {
   name: string;
@@ -35,7 +36,7 @@ function Shop() {
   });
 
   const handleClick = async (Name: string, Amount: number) => {
-    const _id = window.localStorage.getItem("AppId")
+    const _id = window.localStorage.getItem("AppId");
     const data = { Name, Amount, _id };
     await fetch("http://localhost:8000/shop", {
       method: "post",
@@ -43,11 +44,11 @@ function Shop() {
       body: JSON.stringify(data),
     } as RequestInit)
       .then(() => {
-        console.log("sent")
+        console.log("sent");
         const updatedValue = { [Name]: 0 };
-        setAmount(amount => ({
+        setAmount((amount) => ({
           ...amount,
-          ...updatedValue
+          ...updatedValue,
         }));
       })
       .catch((error) => {
@@ -55,30 +56,25 @@ function Shop() {
       });
   };
 
-
-
-
   function Item(prop: ItemProps) {
-    let value = 0
+    let value = 0;
     if (prop.Name == "Fire") {
       value = amount.Fire;
-    }
-    else if (prop.Name == "Original") {
-      value = amount.Original
-    }
-    else {
-      value = amount.Mild
+    } else if (prop.Name == "Original") {
+      value = amount.Original;
+    } else {
+      value = amount.Mild;
     }
 
     const handleChange = (e: any, Name: string) => {
       const updatedValue = { [Name]: Number(e.target.value) };
-      setAmount(amount => ({
+      setAmount((amount) => ({
         ...amount,
-        ...updatedValue
+        ...updatedValue,
       }));
 
-      console.log(amount)
-  };
+      console.log(amount);
+    };
 
     return (
       <>
@@ -121,37 +117,37 @@ function Shop() {
           <Item
             Name="Original"
             // Name={props.name}
-            src="src\Images\AboutUsImage.JPG"
+            src={Image}
             Description="Embark on a flavor adventure that combines the best of 
             both worlds in every bite! Sweet 'n tangy fusion beef jerky is a 
             delightful fusion of sweet and tangy flavors that will tantalize 
             your taste buds like never before."
             onClick={(e) => {
-              handleClick(e, amount.Original)
+              handleClick(e, amount.Original);
             }}
             Key={0}
           />
           <Item
             Name="Mild"
-            src="src\Images\AboutUsImage.JPG"
+            src={Image}
             Description="Discover a flavor profile that embraces subtlety and 
             a gentle touch. Our mild beef jerky is a savory snack that 
             caters to those who prefer a milder taste experience without 
             compromising on quality or satisfaction."
             onClick={(e) => {
-              handleClick(e, amount.Mild)
+              handleClick(e, amount.Mild);
             }}
             Key={1}
           />
           <Item
             Name="Fire"
-            src="src\Images\AboutUsImage.JPG"
+            src={Image}
             Description="Ignite your taste buds with a fiery flavor experience like no other!
           Our fire flavor is a sizzling hot beef jerky that brings the heat to
           your snacking routine. The finest cuts of premium beef,
           marinated in a secret blend of scorching spices."
             onClick={(e) => {
-              handleClick(e, amount.Fire)
+              handleClick(e, amount.Fire);
             }}
             Key={2}
           />

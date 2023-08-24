@@ -11,13 +11,13 @@ import {
 import { firestore } from "../Firebase";
 import ContactModal from "./Modal";
 import LoginModal from "./LoginModal";
+import CartImage from "../Images/CartImage.jpg";
 
 function Bar() {
   const [cartItems, setCartItems] = useState(0);
   const cartCount = useRef<number>(0);
   const [showContact, setContact] = useState(false);
   const [showLogin, setLogin] = useState(false);
-
 
   //CHECK THIS LATER
   useEffect(() => {
@@ -38,8 +38,6 @@ function Bar() {
       //   console.log(orders)
       //   // setCartItems(cartCount.current);
       // }
-
-
     }
     getCount();
   }, []);
@@ -49,36 +47,33 @@ function Bar() {
   };
 
   const onClickLogin = () => {
-    setLogin(!showLogin)
-  }
+    setLogin(!showLogin);
+  };
 
   return (
     <>
       <div className="Bar">
-        <h1 className="Title">Jerky Republic</h1>
         {/* Add a font to this that matches the whole page */}
-
-        <Link className="Link" to="/">
-          <button className="Button">Home</button>
-        </Link>
-        <Link className="Link" to="/About">
-          <button className="Button">About</button>
-        </Link>
-        <Link className="Link" to="/Shop">
-          <button className="Button">Shop</button>
-        </Link>
-        <button className="Link Button" onClick={onClickContact}>
-          Contact
-        </button>
-        <button className="Link Button" onClick={onClickLogin}>Login</button>
-        <Link className="Link" to="/Cart">
-          <button className="Button">
-            {cartItems >= 1 ? (
-              <span className="Cart-Dot">{cartItems}</span>
-            ) : null}
-            <img className="CartImage" src="src\Images\CartImage.jpg"></img>
-          </button>
-        </Link>
+        <div className="Links-Container">
+          <nav className="Bar-Container">
+            <Link className="Link" to="/">
+              <button className="Button">Home</button>
+            </Link>
+            <Link className="Link" to="/About">
+              <button className="Button">About</button>
+            </Link>
+          </nav>
+          <h1 className="Title">Jerky Republic</h1>
+          <nav className="Bar-Container">
+            <Link className="Link" to="/Shop">
+              <button className="Button">Shop</button>
+            </Link>
+            <button className="Link Button" onClick={onClickLogin}>
+              Login
+            </button>
+          </nav>
+        </div>
+        <Link className="Cart-Link" to="/Cart"></Link>
       </div>
 
       <ContactModal show={showContact} setShow={setContact} />
@@ -88,3 +83,18 @@ function Bar() {
 }
 
 export default Bar;
+{
+  /* <button className="Link Button" onClick={onClickContact}>
+              Contact
+            </button> */
+}
+{
+  /* <Link className="Link" to="/Cart">
+              <button className="Button">
+                {cartItems >= 1 ? (
+                  <span className="Cart-Dot">{cartItems}</span>
+                ) : null}
+                Cart
+              </button>
+            </Link> */
+}

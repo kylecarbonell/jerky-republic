@@ -1,9 +1,7 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
-import ContactModal from "./Modal";
+import BeefJerkyImage from "../Images/BeefJerkyImg.jpeg";
 
 function Home() {
   return (
@@ -19,7 +17,7 @@ function Home() {
           </Link>
         </div>
 
-        <img className="Pic" src="src\Images\BeefJerkyImg.jpeg" />
+        <img className="Pic" src={BeefJerkyImage} />
       </div>
     </>
   );
