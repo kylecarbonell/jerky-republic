@@ -70,35 +70,39 @@ function Cart() {
     return docRef;
   }
 
-  useEffect(() => {
-    async function CalculateSum() {
-      // console.log("Rendered");
-      const docs = await GetDoc();
-      tempSum.current = 0;
-      fireCount.current = 0;
-      mildCount.current = 0;
-      originalCount.current = 0;
+  const GetData = async () => {
+    const _id = window.localStorage.getItem("AppId");
 
-      setItems([]);
-      docs.forEach((doc) => {
-        items.push(doc.get("Item"));
-        const name = doc.get("Item");
-        if (name == "Fire") {
-          tempSum.current += priceFire;
-          fireCount.current += 1;
-        } else if (name == "Mild") {
-          tempSum.current += priceMild;
-          mildCount.current += 1;
-        } else {
-          tempSum.current += priceOriginal;
-          originalCount.current += 1;
-        }
-      });
-      // console.log(items);
+    const data = await fetch(`http://localhost:8000/cart?id=${_id}`);
+
+    if (!data.ok) {
+      console.log("ERRROR");
+      return;
     }
 
+    const json = await data.json();
+    console.log(json);
+
+    return json;
+  };
+
+  useEffect(() => {
+    async function CalculateSum() {
+      const data = await GetData();
+
+      fireCount.current += data.Fire;
+      originalCount.current += data.Original;
+      mildCount.current += data.Mild;
+
+      const firePrice = fireCount.current.valueOf() * priceFire;
+      const originalPrice = originalCount.current.valueOf() * priceOriginal;
+      const mildPrice = mildCount.current.valueOf() * priceMild;
+
+      const s = firePrice + originalPrice + mildPrice;
+
+      console.log(s);
+    }
     CalculateSum();
-    setItems(tempItems);
   }, []);
 
   return (

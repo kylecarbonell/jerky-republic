@@ -25,6 +25,14 @@ app.post("/shop", async (req, res) => {
   }
 });
 
+//Make call to MongoDB to grab data on each list
+app.get("/cart", async (req, res) => {
+  const id = req.query.id;
+
+  let results = await db.collection("Orders").find({ _id: id }).toArray();
+  res.status(200).json(results[0]);
+});
+
 app.post("/signup", async (req, res) => {
   const body = req.body;
   console.log(body);
