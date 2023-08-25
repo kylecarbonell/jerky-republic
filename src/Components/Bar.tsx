@@ -14,6 +14,7 @@ import LoginModal from "./LoginModal";
 import CartImage from "../Images/CartImage.jpg";
 
 import { SideBarData } from "../NavBarData";
+import LoginIcon from "@mui/icons-material/Login";
 
 // import useWindowDimensions from "../WindowSize";
 
@@ -108,6 +109,19 @@ function Bar() {
                   </Link>
                 );
               })}
+            </div>
+
+            <div className="NavLogin-Container">
+              <LoginIcon className="NavLoginIcon"></LoginIcon>
+              <button
+                className="NavBarButton NavLogin"
+                onClick={() => {
+                  onClickLogin();
+                  setNavbar(false);
+                }}
+              >
+                Login
+              </button>
             </div>
           </div>
         )}

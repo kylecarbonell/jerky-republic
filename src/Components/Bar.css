@@ -150,7 +150,7 @@
 
 .NavBarButton {
   height: 100%;
-  width: 90%;
+  width: 100%;
 
   background-color: var(--yellow);
 
@@ -181,6 +181,28 @@
   background-color: var(--yellow);
   color: black;
   flex: 30%;
+}
+
+.NavLogin-Container {
+  height: 10%;
+  background-color: var(--yellow);
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+}
+
+.NavLogin {
+  width: 70%;
+  font-size: 1.5rem;
+  background-color: var(--yellow);
+}
+
+.NavLoginIcon {
+  width: 20%;
+  height: 100%;
+  background-color: var(--yellow);
+  z-index: 10;
 }
 
 @media (min-width: 1400px) {
