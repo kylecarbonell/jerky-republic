@@ -18,7 +18,9 @@
   top: 0px;
   bottom: 0px;
 
-  display: flex;
+  overflow-y: scroll;
+
+  /* display: flex; */
   flex-direction: column;
 
   background-color: whitesmoke;
@@ -32,5 +34,10 @@
 #Content {
   height: 93%;
   width: 100%;
-  background-color: var(--grey);
+}
+
+#Site-Map {
+  height: 35%;
+  width: 100%;
+  background-color: var(--red);
 }

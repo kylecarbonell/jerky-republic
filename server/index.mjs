@@ -25,6 +25,15 @@ app.post("/shop", async (req, res) => {
   }
 });
 
+app.post("/start", async (req, res) => {
+  const id = req.body.id;
+
+  const result2 = await db
+    .collection("Orders")
+    .insertOne({ _id: id, Fire: 0, Original: 0, Mild: 0 });
+  console.log(id.toString());
+});
+
 //Make call to MongoDB to grab data on each list
 app.get("/cart", async (req, res) => {
   const id = req.query.id;
@@ -33,14 +42,11 @@ app.get("/cart", async (req, res) => {
   res.status(200).json(results[0]);
 });
 
-app.post("/signup", async (req, res) => {
+app.post("/register", async (req, res) => {
   const body = req.body;
   console.log(body);
   const result = await db.collection("Users").insertOne(body);
-  const result2 = await db
-    .collection("Orders")
-    .insertOne({ _id: body._id, Fire: 0, Original: 0, Mild: 0 });
-  console.log(body._id.toString());
+
   res.send(result).status(200);
 });
 

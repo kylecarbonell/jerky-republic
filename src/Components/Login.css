@@ -1,0 +1,30 @@
+.Login-Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.LoginForm {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#Input,
+#SubmitButton {
+  width: 30%;
+  height: 5%;
+  padding: 0.5%;
+
+  margin-top: 1%;
+}
+
+#SubmitButton {
+  background-color: var(--red);
+}

@@ -3,6 +3,8 @@ import "../App.css";
 import "./About.css";
 import AboutUsImage from "../Images/AboutUsImage.jpeg";
 
+import SiteMap from "./SiteMap";
+
 interface Props {
   Name: string;
   Role: string;

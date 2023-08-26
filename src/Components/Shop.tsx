@@ -1,19 +1,11 @@
 import "../App.css";
 import "./Shop.css";
 import Bar from "./Bar";
-import {
-  addDoc,
-  collection,
-  doc,
-  getFirestore,
-  increment,
-  setDoc,
-  updateDoc,
-} from "firebase/firestore";
-import { firestore } from "../Firebase";
 import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import Image from "../Images/AboutUsImage.jpeg";
+
+import SiteMap from "./SiteMap";
 
 interface ShopProps {
   name: string;
@@ -36,7 +28,7 @@ function Shop() {
   });
 
   const handleClick = async (Name: string, Amount: number) => {
-    const _id = window.localStorage.getItem("AppId");
+    const _id = window.localStorage.getItem("cartToken");
     const data = { Name, Amount, _id };
     await fetch("http://localhost:8000/shop", {
       method: "post",
@@ -151,6 +143,9 @@ function Shop() {
             }}
             Key={2}
           />
+        </div>
+        <div id="Site-Map">
+          <SiteMap />
         </div>
       </div>
     </>

@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "run": "start dev",
     "start": "nodemon server/index.mjs",
     "test": "vitest",
     "dev": "vite",
@@ -31,7 +32,8 @@
     "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
-    "realm-web": "^2.0.0"
+    "realm-web": "^2.0.0",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",

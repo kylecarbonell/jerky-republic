@@ -5,6 +5,8 @@ import App from "./App";
 import About from "./Components/About";
 import Shop from "./Components/Shop";
 import Cart from "./Components/Cart";
+import Login from "./Components/Login";
+import Register from "./Components/Register";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -31,6 +33,14 @@ const router = createBrowserRouter([
   {
     path: "/Cart",
     element: <Cart />,
+  },
+  {
+    path: "/account/login",
+    element: <Login />,
+  },
+  {
+    path: "/account/register",
+    element: <Register />,
   },
 ]);
 

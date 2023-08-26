@@ -285,3 +285,17 @@
   background-color: #bbb;
   border-radius: 50%;
 }
+
+.Icon-Container {
+  display: flex;
+  background-color: var(--red);
+  width: 5%;
+}
+
+#Icon {
+  background-color: var(--red);
+  color: black;
+  margin-left: 5%;
+
+  font-size: 2vw;
+}

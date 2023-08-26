@@ -3,10 +3,11 @@ import "../App.css";
 import "./Cart.css";
 
 import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
-import { firestore } from "../Firebase";
 import { useEffect, useReducer, useRef, useState } from "react";
 
 import { Button } from "react-bootstrap";
+
+import SiteMap from "./SiteMap";
 
 interface ItemProps {
   itemName: string;
@@ -62,13 +63,13 @@ function Cart() {
   const priceOriginal = 5;
   const priceTax = 0.09;
 
-  async function GetDoc() {
-    const docRef = await getDocs(
-      collection(firestore, "Orders", "User", "Cart")
-    );
+  // async function GetDoc() {
+  //   const docRef = await getDocs(
+  //     collection(firestore, "Orders", "User", "Cart")
+  //   );
 
-    return docRef;
-  }
+  //   return docRef;
+  // }
 
   const GetData = async () => {
     const _id = window.localStorage.getItem("AppId");
@@ -154,6 +155,9 @@ function Cart() {
               <Button className="Payment-Button">Place your order</Button>
             </div>
           </div>
+        </div>
+        <div id="Site-Map">
+          <SiteMap />
         </div>
       </div>
     </>

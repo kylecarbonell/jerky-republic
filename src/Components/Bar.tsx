@@ -8,13 +8,15 @@ import {
   getDoc,
   getDocs,
 } from "firebase/firestore";
-import { firestore } from "../Firebase";
 import ContactModal from "./Modal";
 import LoginModal from "./LoginModal";
 import CartImage from "../Images/CartImage.jpg";
 
 import { SideBarData } from "../NavBarData";
 import LoginIcon from "@mui/icons-material/Login";
+
+import PersonIcon from "@mui/icons-material/Person";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 // import useWindowDimensions from "../WindowSize";
 
@@ -29,20 +31,6 @@ function Bar() {
     async function getCount() {
       cartCount.current = 0;
       setCartItems(0);
-      // const collections = collection(firestore, "Orders", "User", "Cart");
-      // const docs = await getDocs(collections);
-
-      // if (app.currentUser != null) {
-      //   const getOrders = await fetch(`http://localhost:8000/orders?id=${app.currentUser.id}`)
-      //   if (!getOrders.ok) {
-      //     alert("Error getting orders")
-      //     return;
-      //   }
-
-      //   const orders = await getOrders.json()
-      //   console.log(orders)
-      //   // setCartItems(cartCount.current);
-      // }
     }
     getCount();
   }, []);
@@ -161,7 +149,15 @@ function Bar() {
             </nav>
           )}
         </div>
-        <Link className="Cart-Link" to="/Cart"></Link>
+
+        <div className="Icon-Container">
+          <Link id="Icon" to="/account/login">
+            <PersonIcon id="Icon"></PersonIcon>
+          </Link>
+          <Link id="Icon" to="/Cart">
+            <ShoppingCartIcon id="Icon"></ShoppingCartIcon>
+          </Link>
+        </div>
       </div>
 
       <ContactModal show={showContact} setShow={setContact} />
