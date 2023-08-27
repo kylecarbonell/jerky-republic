@@ -7,7 +7,6 @@
 }
 
 .SiteMap-Container {
-  background-color: black;
   /* position: fixed; */
   height: 100%;
   width: 100%;
@@ -30,6 +29,7 @@
 
   /* margin-top: 4%; */
   padding-top: 2%;
+  border: 2rem;
 }
 
 .SiteMap-Link {
@@ -43,7 +43,7 @@
 }
 
 #Text {
-  font-size: 1vw;
+  font-size: 1rem;
 
   background-color: var(--red);
   color: black;
@@ -52,5 +52,30 @@
 
 #Policy-Text {
   font-size: 0.6vw;
-  background-color: var(--red);
+}
+
+@media (max-width: 900px) {
+  .SiteMap-Container {
+    height: 200%;
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding-left: 5%;
+    padding-top: 2%;
+
+    /* background-color: black; */
+  }
+
+  .SiteMap-Box {
+    height: 100%;
+    width: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 2%;
+  }
 }

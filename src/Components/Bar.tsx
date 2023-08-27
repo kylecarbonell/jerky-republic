@@ -9,7 +9,6 @@ import {
   getDocs,
 } from "firebase/firestore";
 import ContactModal from "./Modal";
-import LoginModal from "./LoginModal";
 import CartImage from "../Images/CartImage.jpg";
 
 import { SideBarData } from "../NavBarData";
@@ -161,24 +160,8 @@ function Bar() {
       </div>
 
       <ContactModal show={showContact} setShow={setContact} />
-      <LoginModal show={showLogin} setShow={setLogin} />
     </>
   );
 }
 
 export default Bar;
-{
-  /* <button className="Link Button" onClick={onClickContact}>
-              Contact
-            </button> */
-}
-{
-  /* <Link className="Link" to="/Cart">
-              <button className="Button">
-                {cartItems >= 1 ? (
-                  <span className="Cart-Dot">{cartItems}</span>
-                ) : null}
-                Cart
-              </button>
-            </Link> */
-}

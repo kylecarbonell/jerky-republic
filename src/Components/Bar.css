@@ -299,3 +299,31 @@
 
   font-size: 2vw;
 }
+
+@media (max-width: 900px) {
+  .Links-Container {
+    width: 75%;
+  }
+
+  #Icon {
+    background-color: var(--red);
+    color: black;
+    /* margin-left: 5%; */
+    padding-right: 5%;
+
+    font-size: 1.5rem;
+  }
+
+  .Title {
+    font-size: 2rem;
+  }
+  .NavButton-Container {
+    padding-top: 2%;
+  }
+}
+
+@media (max-width: 700px), (max-height: 675px) {
+  .NavBar-Container {
+    width: 100%;
+  }
+}
