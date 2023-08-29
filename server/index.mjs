@@ -15,11 +15,23 @@ app.post("/shop", async (req, res) => {
   const body = req.body.Name;
   const amount = req.body.Amount;
   const _id = req.body._id;
-  console.log(body);
 
   if (_id != undefined) {
     const user = { _id: _id };
     const command = { $inc: { [body]: amount } };
+    let result = await db.collection("Orders").updateOne(user, command);
+    res.send(result).status(200);
+  }
+});
+
+app.post("/cart", async (req, res) => {
+  const body = req.body.Name;
+  const amount = req.body.Amount;
+  const _id = req.body._id;
+
+  if (_id != undefined) {
+    const user = { _id: _id };
+    const command = { $set: { [body]: amount } };
     let result = await db.collection("Orders").updateOne(user, command);
     res.send(result).status(200);
   }

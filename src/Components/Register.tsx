@@ -58,7 +58,7 @@ function Register() {
       <form className="LoginForm">
         <div className="Login-Container">
           <h1 style={{ fontSize: "3vw" }}>Register</h1>
-          <h2 style={{ fontSize: "1vw" }}>
+          <h2 style={{ fontSize: "1vw", fontFamily: "kapraNue" }}>
             Please fill in your information below:
           </h2>
 
@@ -69,13 +69,6 @@ function Register() {
           <button id="SubmitButton" onClick={onSubmit}>
             Create My Account
           </button>
-
-          <h2 style={{ fontSize: "0.7vw", marginTop: "2%" }}>
-            Don't have an account?{" "}
-            <Link to="/account/register">
-              <span>Click Here</span>
-            </Link>
-          </h2>
         </div>
       </form>
       <SiteMap></SiteMap>

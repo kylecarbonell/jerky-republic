@@ -4,6 +4,9 @@ import Bar from "./Bar";
 import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import Image from "../Images/AboutUsImage.jpeg";
+import SpicyBeef from "../Images/FireJerky.jpg";
+import OriginalBeef from "../Images/OriginalJerky.jpg";
+import MildBeef from "../Images/MildJerky.jpg";
 
 import SiteMap from "./SiteMap";
 
@@ -109,7 +112,7 @@ function Shop() {
           <Item
             Name="Original"
             // Name={props.name}
-            src={Image}
+            src={OriginalBeef}
             Description="Embark on a flavor adventure that combines the best of 
             both worlds in every bite! Sweet 'n tangy fusion beef jerky is a 
             delightful fusion of sweet and tangy flavors that will tantalize 
@@ -121,7 +124,7 @@ function Shop() {
           />
           <Item
             Name="Mild"
-            src={Image}
+            src={MildBeef}
             Description="Discover a flavor profile that embraces subtlety and 
             a gentle touch. Our mild beef jerky is a savory snack that 
             caters to those who prefer a milder taste experience without 
@@ -133,7 +136,7 @@ function Shop() {
           />
           <Item
             Name="Fire"
-            src={Image}
+            src={SpicyBeef}
             Description="Ignite your taste buds with a fiery flavor experience like no other!
           Our fire flavor is a sizzling hot beef jerky that brings the heat to
           your snacking routine. The finest cuts of premium beef,

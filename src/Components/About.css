@@ -16,6 +16,12 @@
 
   display: flex;
   flex-direction: column;
+
+  overflow-y: scroll;
+}
+
+.About::-webkit-scrollbar {
+  display: none;
 }
 
 .AboutUsP {
@@ -23,6 +29,8 @@
   width: 50%;
   margin-left: 25%;
   margin-bottom: 5%;
+  margin-top: 2%;
+  font-family: kapraNue;
 }
 
 .About-Item {
@@ -43,6 +51,7 @@
   height: 1000px;
   width: 100%;
   background-color: whitesmoke;
+  font-family: kapraNue;
 }
 
 .OurStaffHeader {
@@ -58,7 +67,7 @@
 }
 
 .Staff {
-  height: 100%;
+  height: 80%;
   width: 100%;
 
   padding: 0;
@@ -66,17 +75,31 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+
+  flex-wrap: wrap;
 }
 
 .StaffContainer {
   height: 80%;
   width: 100%;
-  margin-top: 5%;
+  margin-top: 10%;
+
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+}
+
+.SiteMap-Container-About {
+  /* position: absolute; */
+  height: 40%;
+  width: 100%;
 }
 
 #Container {
   width: 30%;
   height: 40%;
+  /* margin-bottom: 2%; */
 }
 
 #Name {
@@ -95,8 +118,10 @@
 
 #Description {
   width: 70%;
-  margin-left: 15%;
+  /* margin-left: 15%; */
   margin-top: 3%;
+
+  font-family: kapraNue;
 }
 
 #Content {

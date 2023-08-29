@@ -18,7 +18,7 @@ function Login() {
       <form className="LoginForm">
         <div className="Login-Container">
           <h1 style={{ fontSize: "3vw" }}>Login</h1>
-          <h2 style={{ fontSize: "1vw" }}>
+          <h2 style={{ fontSize: "1vw", fontFamily: "kapraNue" }}>
             Please enter your e-mail and password:
           </h2>
 

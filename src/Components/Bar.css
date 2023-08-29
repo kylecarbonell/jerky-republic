@@ -46,14 +46,15 @@
 }
 
 .Title {
-  /* font-size: 3rem; */
-  font-size: 2.5vw;
+  font-size: 3vw;
   color: black;
   font-weight: bolder;
   background-color: var(--red);
 
   margin-left: 4%;
   margin-right: 4%;
+
+  font-family: breakfast;
 }
 
 .Button {
@@ -63,10 +64,12 @@
   background-color: var(--red);
   color: black;
   font-size: 30px;
-  font-size: 1vw;
+  font-size: 1.5vw;
   font-weight: 500;
 
   border: none;
+
+  font-family: fjalla;
 }
 
 .NavButton-Container {
@@ -289,8 +292,15 @@
 .Icon-Container {
   display: flex;
   background-color: var(--red);
-  width: 5%;
+  width: 8%;
 }
+
+/* .Cart-Item-Number {
+  font-size: 2.5rem;
+  background-color: var(--red);
+  padding-top: 4%;
+  margin-left: 3%;
+} */
 
 #Icon {
   background-color: var(--red);

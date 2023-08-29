@@ -32,7 +32,7 @@
   max-height: 800px;
   max-width: 500px;
 
-  margin-top: 2%;
+  margin-top: -7%;
 
   /* background-color: black; */
 
@@ -77,4 +77,25 @@
   font-size: 1rem;
 
   margin-top: 2%;
+
+  font-family: kapraNue;
+}
+
+@media (max-width: 1500px) {
+  .Item {
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+}
+
+@media (max-width: 700px) {
+  .Item {
+    padding-top: 4%;
+    margin-bottom: 10%;
+    width: 90%;
+  }
+
+  .Item-Image {
+    display: none;
+  }
 }

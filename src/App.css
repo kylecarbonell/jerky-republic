@@ -7,6 +7,7 @@
 }
 * {
   background-color: whitesmoke;
+  font-family: fjalla;
 }
 
 .App {
@@ -40,4 +41,24 @@
   height: 35%;
   width: 100%;
   /* background-color: var(--red); */
+}
+
+@font-face {
+  font-family: cafeFrancoise;
+  src: url(./Fonts/CafeFrancoise_D.otf);
+}
+
+@font-face {
+  font-family: breakfast;
+  src: url(./Fonts/breakfastDEMO.otf);
+}
+
+@font-face {
+  font-family: fjalla;
+  src: url(./Fonts/FjallaOne-Regular.ttf);
+}
+
+@font-face {
+  font-family: kapraNue;
+  src: url(./Fonts/Typoforge\ Studio\ -\ Kapra\ Neue\ Pro\ Regular\ Italic.otf);
 }

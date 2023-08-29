@@ -7,6 +7,7 @@ import Shop from "./Components/Shop";
 import Cart from "./Components/Cart";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
+import Admin from "./Admin/Admin";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/account/register",
     element: <Register />,
+  },
+  {
+    path: "/admin/orders",
+    element: <Admin />,
   },
 ]);
 

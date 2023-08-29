@@ -2,8 +2,11 @@ import Bar from "./Bar";
 import "../App.css";
 import "./About.css";
 import AboutUsImage from "../Images/AboutUsImage.jpeg";
+import NoProfPic from "../Images/Pic.jpg";
 
 import SiteMap from "./SiteMap";
+
+import { StaffData } from "../Data/StaffData";
 
 interface Props {
   Name: string;
@@ -14,10 +17,12 @@ interface Props {
 function Staff(prop: Props) {
   return (
     <>
-      <h2 id="Name">{prop.Name}</h2>
-      <h3 id="Role">{prop.Role}</h3>
-      <img id="Image" src={AboutUsImage} />
-      <p id="Description">{prop.Description}</p>
+      <div id="Container" className="StaffContainer">
+        <h2 id="Name">{prop.Name}</h2>
+        <h3 id="Role">{prop.Role}</h3>
+        <img id="Image" src={NoProfPic} />
+        <p id="Description">{prop.Description}</p>
+      </div>
     </>
   );
 }
@@ -54,49 +59,23 @@ function About() {
             </p>
           </div>
 
-          {/* Item 2 */}
           <div className="About-Item">
-            <h1 className="OurStaffHeader">Our Staff</h1>
-            <div id="Container" className="Eric">
-              <Staff
-                Name="Eric Carbonell"
-                Role="Founder / Owner"
-                Description="Hi, my name is Eric and I founded Jerky Republic back in 2019 over
-                  covid. I love fishing with some of my buddies and traveling all around
-                  the world. My favorite places to travel to include the Philippines and
-                  sever European countries."
-              />
-            </div>
-
-            <div className="About-Item">
-              <div className="Staff">
-                <div id="Container" className="StaffContainer">
+            <div className="Staff">
+              {StaffData.map((val, key) => {
+                return (
                   <Staff
-                    Name="Kyle Carbonell"
-                    Role="Cutter"
-                    Description="Hi, my name is Kyle, I love spending time with my family. 
-                  Some of my hobbies are playing volleyball and making computer science projects. "
-                  />
-                </div>
-                <div id="Container" className="StaffContainer">
-                  <Staff
-                    Name="Aiden Carbonell"
-                    Role="Marinator"
-                    Description="Hey guys, I'm Aiden. I am currently a first-year college student and 
-                  I'm working for my uncle Eric part time. I love playing games and hanging out with my friends."
-                  />
-                </div>
-                <div id="Container" className="StaffContainer">
-                  <Staff
-                    Name="Kennet Carbonell"
-                    Role="Baker"
-                    Description="Hi, I'm Kenneth. I have a bachelor's in computer science from Cal 
-                  state Fullerton. My hobbies are playing video games and playing Pokemon Go on my free time."
-                  />
-                </div>
-              </div>
+                    Name={val.name}
+                    Role={val.role}
+                    Description={val.description}
+                  ></Staff>
+                );
+              })}
             </div>
           </div>
+        </div>
+
+        <div className="SiteMap-Container-About">
+          <SiteMap></SiteMap>
         </div>
       </div>
     </>

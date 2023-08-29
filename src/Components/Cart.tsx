@@ -2,44 +2,83 @@ import Bar from "./Bar";
 import "../App.css";
 import "./Cart.css";
 
+import SpicyBeef from "../Images/FireJerky.jpg";
+import OriginalBeef from "../Images/OriginalJerky.jpg";
+import MildBeef from "../Images/MildJerky.jpg";
+
 import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
 import { useEffect, useReducer, useRef, useState } from "react";
 
 import { Button } from "react-bootstrap";
 
 import SiteMap from "./SiteMap";
+import { Link } from "react-router-dom";
 
 interface ItemProps {
   itemName: string;
   itemPrice: number;
   itemCount: number;
+  itemImage: string;
 }
 
 function Cart() {
-  const fireCount = useRef<number>(0);
-  const originalCount = useRef<number>(0);
-  const mildCount = useRef<number>(0);
-
   function Item(props: ItemProps) {
     const amount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+    async function onChange(val: string, Name: string) {
+      const _id = window.localStorage.getItem("cartToken");
+      const Amount = parseInt(val);
+      console.log(typeof Amount);
+      console.log(Amount);
+      const data = { Name, Amount, _id };
+
+      await fetch("http://localhost:8000/cart", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      } as RequestInit)
+        .then(() => {
+          if (Name == "Fire") {
+            setFire(Amount);
+          } else if (Name == "Mild") {
+            setMild(Amount);
+          } else {
+            setOriginal(Amount);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
 
     return (
       <>
         <div className="Item-Holder">
           <div className="Item-Picture-Holder">
-            <img
-              className="Item-Picture"
-              src="src/Images/AboutUsImage.JPG"
-            ></img>
+            <img className="Item-Picture" src={props.itemImage}></img>
           </div>
           <div className="Item-Name-Holder">
             <h1 className="Item-Name">{props.itemName}</h1>
             <div className="Item-Name-Option">
-              <select defaultValue={props.itemCount}>
-                {amount.map((num) => {
-                  return <option value={num}> {num}</option>;
-                })}
-              </select>
+              <h1 className="Item-Name" style={{ fontSize: "1.5rem" }}>
+                Quantity: <span></span>
+                <select
+                  defaultValue={props.itemCount}
+                  onChange={async (e: any) => {
+                    const name = props.itemName;
+                    await onChange(e.target.value, name);
+                  }}
+                >
+                  {amount.map((num, key) => {
+                    return (
+                      <option key={key} value={num}>
+                        {" "}
+                        {num}
+                      </option>
+                    );
+                  })}
+                </select>
+              </h1>
             </div>
           </div>
           <div className="Item-Price-Holder">
@@ -50,29 +89,19 @@ function Cart() {
     );
   }
 
-  const tempSum = useRef<number>(0);
   const [sum, setSum] = useState(0);
-  const [tax, setTax] = useState(0);
-  const [items, setItems] = useState(Array<string>);
-  // const [reducer, forceUpdate] = useReducer(x => x + 1, 0);
 
-  let tempItems: Array<string> = [];
+  const [fire, setFire] = useState(0);
+  const [original, setOriginal] = useState(0);
+  const [mild, setMild] = useState(0);
 
   const priceFire = 7;
   const priceMild = 6;
   const priceOriginal = 5;
   const priceTax = 0.09;
 
-  // async function GetDoc() {
-  //   const docRef = await getDocs(
-  //     collection(firestore, "Orders", "User", "Cart")
-  //   );
-
-  //   return docRef;
-  // }
-
   const GetData = async () => {
-    const _id = window.localStorage.getItem("AppId");
+    const _id = window.localStorage.getItem("cartToken");
 
     const data = await fetch(`http://localhost:8000/cart?id=${_id}`);
 
@@ -82,29 +111,28 @@ function Cart() {
     }
 
     const json = await data.json();
-    console.log(json);
+
+    setFire(json.Fire);
+    setOriginal(json.Original);
+    setMild(json.Mild);
 
     return json;
   };
 
   useEffect(() => {
     async function CalculateSum() {
-      const data = await GetData();
+      await GetData();
 
-      fireCount.current += data.Fire;
-      originalCount.current += data.Original;
-      mildCount.current += data.Mild;
-
-      const firePrice = fireCount.current.valueOf() * priceFire;
-      const originalPrice = originalCount.current.valueOf() * priceOriginal;
-      const mildPrice = mildCount.current.valueOf() * priceMild;
+      const firePrice = fire * priceFire;
+      const originalPrice = original * priceOriginal;
+      const mildPrice = mild * priceMild;
 
       const s = firePrice + originalPrice + mildPrice;
 
-      console.log(s);
+      setSum(s);
     }
     CalculateSum();
-  }, []);
+  }, [fire, original, mild]);
 
   return (
     <>
@@ -115,44 +143,46 @@ function Cart() {
 
         <div className="Cart">
           <div className="Cart-Holder">
-            {fireCount.current.valueOf() >= 1 ? (
+            {fire > 0 && (
               <Item
                 itemName="Fire"
                 itemPrice={priceFire}
-                itemCount={fireCount.current.valueOf()}
+                itemCount={fire}
+                itemImage={SpicyBeef}
               ></Item>
-            ) : null}
-            {mildCount.current.valueOf() >= 1 ? (
+            )}
+            {mild > 0 && (
               <Item
                 itemName="Mild"
                 itemPrice={priceMild}
-                itemCount={mildCount.current.valueOf()}
+                itemCount={mild}
+                itemImage={MildBeef}
               ></Item>
-            ) : null}
-            {originalCount.current.valueOf() >= 1 ? (
+            )}
+            {original > 0 && (
               <Item
                 itemName="Original"
                 itemPrice={priceOriginal}
-                itemCount={originalCount.current.valueOf()}
+                itemCount={original}
+                itemImage={OriginalBeef}
               ></Item>
-            ) : null}
+            )}
           </div>
           <div className="Payment-Holder">
             <div className="Payment-Description">
               <h1>Order Summary</h1>
+              <p className="Payment-Items">Items : ${sum}</p>
               <p className="Payment-Items">
-                Items : ${tempSum.current.valueOf()}
+                Shipping and Handling : ${(sum * priceTax).toFixed(2)}
               </p>
-              <p className="Payment-Items">
-                Shipping and Handling : $
-                {(tempSum.current.valueOf() * priceTax).toFixed(2)}
-              </p>
-              <p className="Payment-Items">
-                Total : $
-                {tempSum.current.valueOf() +
-                  tempSum.current.valueOf() * priceTax}
-              </p>
-              <Button className="Payment-Button">Place your order</Button>
+              <p className="Payment-Items">Total : ${sum + sum * priceTax}</p>
+              <Link to="/checkout">
+                <Button className="Payment-Button">Place your order</Button>
+              </Link>
+
+              <Link to="/Shop">
+                <Button className="Payment-Button">Keep Shopping</Button>
+              </Link>
             </div>
           </div>
         </div>

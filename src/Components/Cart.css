@@ -51,6 +51,7 @@
 
 .Payment-Button {
   background-color: var(--blue);
+  margin-right: 5%;
 }
 
 .Item-Holder {

@@ -17,8 +17,6 @@ import LoginIcon from "@mui/icons-material/Login";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
-// import useWindowDimensions from "../WindowSize";
-
 function Bar() {
   const [cartItems, setCartItems] = useState(0);
   const cartCount = useRef<number>(0);
@@ -33,10 +31,6 @@ function Bar() {
     }
     getCount();
   }, []);
-
-  const onClickContact = () => {
-    setContact(!showContact);
-  };
 
   const onClickLogin = () => {
     setLogin(!showLogin);
@@ -90,25 +84,12 @@ function Bar() {
             <div className="NavLink-Container">
               {SideBarData.map((val, key) => {
                 return (
-                  <Link className="NavLink" to={val.link}>
+                  <Link key={key} className="NavLink" to={val.link}>
                     <div className="NavBarIcon-Container">{val.icon}</div>
                     <button className="NavBarButton">{val.title}</button>
                   </Link>
                 );
               })}
-            </div>
-
-            <div className="NavLogin-Container">
-              <LoginIcon className="NavLoginIcon"></LoginIcon>
-              <button
-                className="NavBarButton NavLogin"
-                onClick={() => {
-                  onClickLogin();
-                  setNavbar(false);
-                }}
-              >
-                Login
-              </button>
             </div>
           </div>
         )}
@@ -142,9 +123,11 @@ function Bar() {
               <Link className="Link" to="/Shop">
                 <button className="Button">Shop</button>
               </Link>
-              <button className="Link Button" onClick={onClickLogin}>
-                Login
-              </button>
+              <Link className="Link" to="/">
+                <button className="Button" onClick={onClickLogin}>
+                  Subscribe
+                </button>
+              </Link>
             </nav>
           )}
         </div>
@@ -156,6 +139,7 @@ function Bar() {
           <Link id="Icon" to="/Cart">
             <ShoppingCartIcon id="Icon"></ShoppingCartIcon>
           </Link>
+          <h1 id="Icon" style={{ paddingTop: "4%" }}></h1>
         </div>
       </div>
 
