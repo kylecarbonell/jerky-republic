@@ -12,9 +12,9 @@ function App() {
     const id = new ObjectId();
     window.localStorage.setItem("cartToken", id.toHexString());
     async function createCart() {
-      const data = { id };
+      const data = { _id: id };
 
-      await fetch("http://localhost:8000/start", {
+      await fetch("http://localhost:8888/.netlify/functions/start", {
         method: "post",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

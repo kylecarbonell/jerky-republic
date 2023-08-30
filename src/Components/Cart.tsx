@@ -103,7 +103,9 @@ function Cart() {
   const GetData = async () => {
     const _id = window.localStorage.getItem("cartToken");
 
-    const data = await fetch(`http://localhost:8000/cart?id=${_id}`);
+    const data = await fetch(
+      `http://localhost:8888/.netlify/functions/cart?id=${_id}`
+    );
 
     if (!data.ok) {
       console.log("ERRROR");
@@ -111,6 +113,7 @@ function Cart() {
     }
 
     const json = await data.json();
+    console.log(json);
 
     setFire(json.Fire);
     setOriginal(json.Original);
@@ -121,15 +124,19 @@ function Cart() {
 
   useEffect(() => {
     async function CalculateSum() {
-      await GetData();
+      await GetData()
+        .then(() => {
+          const firePrice = fire * priceFire;
+          const originalPrice = original * priceOriginal;
+          const mildPrice = mild * priceMild;
 
-      const firePrice = fire * priceFire;
-      const originalPrice = original * priceOriginal;
-      const mildPrice = mild * priceMild;
+          const s = firePrice + originalPrice + mildPrice;
 
-      const s = firePrice + originalPrice + mildPrice;
-
-      setSum(s);
+          setSum(s);
+        })
+        .catch((error) => {
+          console.log(error.toString());
+        });
     }
     CalculateSum();
   }, [fire, original, mild]);

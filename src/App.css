@@ -10,6 +10,10 @@
   font-family: fjalla;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
 .App {
   /* overflow: auto; */
   position: absolute;

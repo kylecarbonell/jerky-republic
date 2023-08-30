@@ -5,13 +5,11 @@ const connectionString =
 
 const client = new MongoClient(connectionString);
 
-let conn;
-try {
-  conn = await client.connect();
-} catch (e) {
-  console.error(e);
-}
+let conn = client.connect();
+// try {
+//   conn = await client.connect();
+// } catch (e) {
+//   console.error(e);
+// }
 
-let db = conn.db("JerkyRepublic");
-
-export default db;
+export default conn;

@@ -10,6 +10,8 @@ import MildBeef from "../Images/MildJerky.jpg";
 
 import SiteMap from "./SiteMap";
 
+import axios from "axios";
+
 interface ShopProps {
   name: string;
 }
@@ -33,7 +35,7 @@ function Shop() {
   const handleClick = async (Name: string, Amount: number) => {
     const _id = window.localStorage.getItem("cartToken");
     const data = { Name, Amount, _id };
-    await fetch("http://localhost:8000/shop", {
+    await fetch("http://localhost:8888/.netlify/functions/shop", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -91,8 +93,12 @@ function Shop() {
                 handleChange(e, prop.Name);
               }}
             >
-              {amounts.map((num) => {
-                return <option value={num}>{num}</option>;
+              {amounts.map((num, key) => {
+                return (
+                  <option key={key} value={num}>
+                    {num}
+                  </option>
+                );
               })}
             </select>
           </div>
