@@ -1,0 +1,101 @@
+:root {
+  --red: #fe4a49;
+  --blue: #009fb7;
+  --yellow: #fed766;
+  --grey: #d3d3da;
+  --white: #f4f4f8;
+}
+
+.ShopApp {
+  /* display: grid; */
+  height: 100%;
+  width: 100%;
+  /* background-color: blue; */
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+
+  overflow-y: scroll;
+}
+
+.Item {
+  /* grid-column-start: span 1; */
+  /* margin-top: 5%; */
+
+  display: flex;
+  flex-direction: column;
+
+  width: 600px;
+
+  max-height: 800px;
+  max-width: 500px;
+
+  margin-top: -7%;
+
+  /* background-color: black; */
+
+  align-items: center;
+  outline: 2px solid black;
+  border-radius: 25px;
+}
+
+.Item-Image {
+  height: 20vw;
+  width: auto;
+}
+
+.Item-Buttons {
+  height: 8%;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+}
+
+.Item-Button {
+  height: 100%;
+  width: 25%;
+  /* margin-top: 1%; */
+  margin-bottom: 2%;
+  background-color: var(--yellow);
+  border: 2px;
+  border-radius: 50px;
+  font-size: 1rem;
+}
+
+.Item-Amount {
+  height: 100%;
+  width: 20%;
+}
+
+.Item-Description {
+  width: 90%;
+  align-self: center;
+  text-align: center;
+  font-size: 1rem;
+
+  margin-top: 2%;
+
+  font-family: kapraNue;
+}
+
+@media (max-width: 1500px) {
+  .Item {
+    margin-top: 2%;
+    margin-bottom: 2%;
+  }
+}
+
+@media (max-width: 700px) {
+  .Item {
+    padding-top: 4%;
+    margin-bottom: 10%;
+    width: 90%;
+  }
+
+  .Item-Image {
+    display: none;
+  }
+}

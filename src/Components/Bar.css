@@ -1,0 +1,339 @@
+:root {
+  --red: #fe4a49;
+  --blue: #009fb7;
+  --yellow: #fed766;
+  --grey: #d3d3da;
+  --white: #f4f4f8;
+
+  --darkRed: #fe3434;
+}
+
+.Bar {
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+
+  align-items: center;
+  /* justify-content: center; */
+
+  outline: none;
+}
+
+.Links-Container {
+  width: 80%;
+  height: 100%;
+
+  margin-left: 10%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  background-color: var(--red);
+}
+
+.Bar-Container {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--red);
+}
+
+.Bar-Item {
+  width: 100%;
+}
+
+.Title {
+  font-size: 3vw;
+  color: black;
+  font-weight: bolder;
+  background-color: var(--red);
+
+  margin-left: 4%;
+  margin-right: 4%;
+
+  font-family: breakfast;
+}
+
+.Button {
+  height: 100%;
+  width: 100%;
+
+  background-color: var(--red);
+  color: black;
+  font-size: 30px;
+  font-size: 1.5vw;
+  font-weight: 500;
+
+  border: none;
+
+  font-family: fjalla;
+}
+
+.NavButton-Container {
+  height: 50%;
+  width: 4%;
+  margin-left: 1%;
+  background-color: var(--red);
+}
+
+.NavButton {
+  height: 100%;
+  width: 100%;
+  background-color: var(--red);
+  border: 0;
+  z-index: 10;
+
+  background-image: url("../Images/navbarIcon.png");
+  background-position: 0px 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  font-size: small;
+}
+
+.NavBar-Container {
+  width: 20%;
+  height: 100%;
+  background-color: var(--yellow);
+  /* background-color: black; */
+
+  top: 0px;
+  bottom: 0px;
+  position: fixed;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.ExitButton-Container {
+  height: 4%;
+  width: 7%;
+
+  margin-left: 2%;
+  margin-top: 2%;
+  /* background-color: blue; */
+}
+
+.ExitButton {
+  height: 100%;
+  width: 100%;
+
+  background-image: url("../Images//xButton.png");
+  background-color: var(--yellow);
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  border: 0;
+}
+
+.NavLink-Container {
+  height: 75%;
+  width: 100%;
+
+  background-color: var(--yellow);
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+}
+
+.NavLink {
+  height: 20%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  /* margin-top: 5%; */
+
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.NavBarButton {
+  height: 100%;
+  width: 100%;
+
+  background-color: var(--yellow);
+
+  border: 0;
+  text-align: left;
+  text-indent: 10%;
+
+  text-decoration: none;
+
+  z-index: 10;
+}
+
+.NavBarIcon-Container {
+  width: 20%;
+  height: 100%;
+  background-color: var(--yellow);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.NavBarIcon {
+  /* transform: scale(3vw); */
+
+  margin-left: 5%;
+  background-color: var(--yellow);
+  color: black;
+  flex: 30%;
+}
+
+.NavLogin-Container {
+  height: 10%;
+  background-color: var(--yellow);
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+}
+
+.NavLogin {
+  width: 70%;
+  font-size: 1.5rem;
+  background-color: var(--yellow);
+}
+
+.NavLoginIcon {
+  width: 20%;
+  height: 100%;
+  background-color: var(--yellow);
+  z-index: 10;
+}
+
+@media (min-width: 1400px) {
+  .NavBar {
+    display: none;
+  }
+}
+
+@media (max-width: 1400px) {
+  .Button {
+    display: none;
+    background-color: var(--red);
+  }
+
+  .Title {
+    margin-left: 0%;
+    margin-right: 10%;
+  }
+}
+
+.Button:hover,
+.Button:focus {
+  background-color: var(--darkRed);
+
+  border: none;
+}
+
+.Link {
+  height: 100%;
+  width: 50%;
+
+  background-color: var(--red);
+  color: black;
+  font-size: 30px;
+  font-size: 1vw;
+  font-weight: 500;
+
+  border: none;
+  text-decoration: none;
+  color: black;
+}
+
+.Cart-Link {
+  width: 2%;
+  height: 50%;
+  margin-right: 5%;
+  margin-top: 0.5%;
+  /* background-color: black; */
+  border: 0;
+
+  background-color: var(--red);
+
+  background-image: url("../Images/CartImage.jpg");
+  background-position: 0px 0px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.CartImage {
+  height: 7%;
+  width: auto;
+  background-color: var(--red);
+  top: 3%;
+  display: block;
+  position: absolute;
+}
+
+.CartImage:hover {
+  background-color: var(--darkRed);
+  border: none;
+}
+
+.Cart-Dot {
+  float: right;
+  position: relative;
+  margin-bottom: 5%;
+
+  height: 25px;
+  width: 25px;
+  background-color: #bbb;
+  border-radius: 50%;
+}
+
+.Icon-Container {
+  display: flex;
+  background-color: var(--red);
+  width: 8%;
+}
+
+/* .Cart-Item-Number {
+  font-size: 2.5rem;
+  background-color: var(--red);
+  padding-top: 4%;
+  margin-left: 3%;
+} */
+
+#Icon {
+  background-color: var(--red);
+  color: black;
+  margin-left: 5%;
+
+  font-size: 2vw;
+}
+
+@media (max-width: 900px) {
+  .Links-Container {
+    width: 75%;
+  }
+
+  #Icon {
+    background-color: var(--red);
+    color: black;
+    /* margin-left: 5%; */
+    padding-right: 5%;
+
+    font-size: 1.5rem;
+  }
+
+  .Title {
+    font-size: 2rem;
+  }
+  .NavButton-Container {
+    padding-top: 2%;
+  }
+}
+
+@media (max-width: 700px), (max-height: 675px) {
+  .NavBar-Container {
+    width: 100%;
+  }
+}

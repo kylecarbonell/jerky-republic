@@ -1,0 +1,68 @@
+:root {
+  --red: #fe4a49;
+  --blue: #009fb7;
+  --yellow: #fed766;
+  --grey: #d3d3da;
+  --white: #f4f4f8;
+}
+* {
+  background-color: whitesmoke;
+  font-family: fjalla;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+.App {
+  /* overflow: auto; */
+  position: absolute;
+
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+
+  overflow-y: scroll;
+
+  /* display: flex; */
+  flex-direction: column;
+
+  background-color: whitesmoke;
+}
+
+.Bar {
+  height: 7%;
+  background-color: var(--red);
+}
+
+#Content {
+  height: 93%;
+  width: 100%;
+}
+
+#Site-Map {
+  height: 35%;
+  width: 100%;
+  /* background-color: var(--red); */
+}
+
+@font-face {
+  font-family: cafeFrancoise;
+  src: url(./Fonts/CafeFrancoise_D.otf);
+}
+
+@font-face {
+  font-family: breakfast;
+  src: url(./Fonts/breakfastDEMO.otf);
+}
+
+@font-face {
+  font-family: fjalla;
+  src: url(./Fonts/FjallaOne-Regular.ttf);
+}
+
+@font-face {
+  font-family: kapraNue;
+  src: url(./Fonts/Typoforge\ Studio\ -\ Kapra\ Neue\ Pro\ Regular\ Italic.otf);
+}

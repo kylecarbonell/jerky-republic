@@ -1,0 +1,168 @@
+.Home-Container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Slogan-Container {
+  width: 30%;
+  height: 50%;
+
+  text-align: left;
+
+  vertical-align: middle;
+  /* background-color: black; */
+}
+
+.Slogan {
+  font-size: 30px;
+  font-size: 4vw;
+}
+
+.Description {
+  font-size: 10px;
+  font-size: 1.5vw;
+  font-family: kapraNue;
+}
+
+.ContactButton {
+  height: 10%;
+  width: 20%;
+  margin-top: 5%;
+  background-color: var(--yellow);
+  border: 2px;
+  border-radius: 50px;
+
+  font-size: 30px;
+  font-size: 1vw;
+}
+
+.Pic {
+  width: 900px;
+  max-height: 600px;
+  max-width: 75%;
+}
+
+@media (max-height: 710px) {
+  .Pic {
+    padding-top: 4%;
+  }
+}
+
+@media (max-width: 1500px) {
+  .Slogan-Container {
+    /* height: 30%; */
+    /* background-color: black; */
+
+    padding-top: 5%;
+  }
+}
+
+@media (max-width: 1285px) {
+  .Slogan-Container {
+    width: 70%;
+    height: auto;
+    /* background-color: black; */
+
+    padding-top: 5%;
+  }
+}
+
+@media (max-width: 800px) {
+  .Slogan-Container {
+    width: 70%;
+    height: 40%;
+    /* background-color: black; */
+    padding-top: 25%;
+  }
+
+  .Pic {
+    padding-top: 4%;
+  }
+
+  .Home-Container {
+    align-content: flex-start;
+  }
+}
+
+@media (max-width: 800px) and (max-height: 875px) {
+  .Slogan-Container {
+    width: 70%;
+    height: 40%;
+    /* background-color: black; */
+    padding-top: 10%;
+  }
+}
+
+@media (max-width: 800px) and (max-height: 675px) {
+  .Home-Container {
+    align-content: center;
+  }
+
+  .Pic {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) and (min-width: 500px) {
+  .Slogan-Container {
+    width: 70%;
+    height: 40%;
+    /* background-color: black; */
+    padding-top: 15%;
+  }
+  .Slogan {
+    font-size: 2.2em;
+  }
+
+  .Description {
+    font-size: 0.9rem;
+  }
+
+  .ContactButton {
+    height: 15%;
+    width: 20%;
+    margin-top: 5%;
+    background-color: var(--yellow);
+    border: 2px;
+    border-radius: 50px;
+
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .Pic {
+    padding-bottom: -30%;
+  }
+}
+
+@media (max-width: 500px) and (min-width: 200px) {
+  .Slogan-Container {
+    width: 70%;
+    height: 40%;
+    /* background-color: black; */
+    padding-top: 15%;
+  }
+  .Slogan {
+    font-size: 2.2em;
+  }
+
+  .Description {
+    font-size: 0.9rem;
+  }
+
+  .ContactButton {
+    height: 15%;
+    width: 20%;
+    margin-top: 5%;
+    background-color: var(--yellow);
+    border: 2px;
+    border-radius: 50px;
+
+    font-size: 0.75rem;
+  }
+}
