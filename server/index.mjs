@@ -13,10 +13,18 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 dotenv.config();
+<<<<<<< HEAD
 const PORT = process.env.REACT_APP_PORT;
 
 app.post("/shop", async (req, res) => {
   // console.log("HERE");
+=======
+
+const PORT = process.env.REACT_APP_PORT;
+
+app.post("/shop", async (req, res) => {
+  console.log("HERE");
+>>>>>>> 32f672df2b01f3090dad33175a5e75c12ae84222
 
   const body = req.body.Name;
   const amount = req.body.Amount;
@@ -44,6 +52,7 @@ app.post("/changecart", async (req, res) => {
 });
 
 app.post("/start", async (req, res) => {
+<<<<<<< HEAD
   try {
     const id = req.body._id;
 
@@ -58,6 +67,14 @@ app.post("/start", async (req, res) => {
   }
 
   // console.log(id.toString());
+=======
+  const id = req.body.id;
+
+  const result2 = await db
+    .collection("Orders")
+    .insertOne({ _id: id, Fire: 0, Original: 0, Mild: 0 });
+  console.log(id.toString());
+>>>>>>> 32f672df2b01f3090dad33175a5e75c12ae84222
 });
 
 //Make call to MongoDB to grab data on each list
