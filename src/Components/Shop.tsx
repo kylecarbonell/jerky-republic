@@ -35,7 +35,7 @@ function Shop() {
   const handleClick = async (Name: string, Amount: number) => {
     const _id = window.localStorage.getItem("cartToken");
     const data = { Name, Amount, _id };
-    await fetch("http://localhost:8888/.netlify/functions/shop", {
+    await fetch("http://localhost:8000/shop", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

@@ -5,16 +5,20 @@ import bodyParser from "body-parser";
 import db from "./Mongo.mjs";
 const app = express();
 
-// USE FOR SERVER nodemon server/index.mjs
+import dotenv from "dotenv";
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(bodyParser.json());
-// app.use("/netlify/functions");
-const PORT = 8000;
+
+dotenv.config();
+
+const PORT = process.env.REACT_APP_PORT;
 
 app.post("/shop", async (req, res) => {
+  console.log("HERE");
+
   const body = req.body.Name;
   const amount = req.body.Amount;
   const _id = req.body._id;

@@ -1,15 +1,19 @@
 import { MongoClient } from "mongodb";
+import dotenv from "dotenv";
 
-const connectionString =
-  "mongodb+srv://kylecarbonell:MMB98jxoWehMqwhp@rateihs.icupq8g.mongodb.net/?retryWrites=true&w=majority";
+dotenv.config();
+
+const connectionString = process.env.REACT_APP_URI;
 
 const client = new MongoClient(connectionString);
 
 let conn = client.connect();
-// try {
-//   conn = await client.connect();
-// } catch (e) {
-//   console.error(e);
-// }
+try {
+  conn = await client.connect();
+} catch (e) {
+  console.error(e);
+}
 
-export default conn;
+let db = conn.db("JerkyRepublic");
+
+export default db;

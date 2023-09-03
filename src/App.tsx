@@ -8,20 +8,22 @@ import SiteMap from "./Components/SiteMap";
 import ObjectId from "bson-objectid";
 
 function App() {
-  if (window.localStorage.getItem("cartToken") == null) {
-    const id = new ObjectId();
-    window.localStorage.setItem("cartToken", id.toHexString());
-    async function createCart() {
-      const data = { _id: id };
+  // if (window.localStorage.getItem("cartToken") == null) {
+  const id = new ObjectId();
+  async function createCart() {
+    const data = { _id: id };
 
-      await fetch("http://localhost:8888/.netlify/functions/start", {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      } as RequestInit).then(() => {
-        console.log("Cart Created");
-      });
-    }
+    await fetch("https://jerky-republic.netlify.app/.netlify/functions/start", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    } as RequestInit).then(() => {
+      window.localStorage.setItem("cartToken", id.toHexString());
+      console.log("Cart Created");
+    });
+    // }
 
     createCart();
   }
