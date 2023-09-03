@@ -13,7 +13,7 @@ function App() {
   async function createCart() {
     const data = { _id: id };
 
-    await fetch("https://jerky-republic.netlify.app/.netlify/functions/start", {
+    await fetch("http://localhost:8000/start", {
       method: "post",
       headers: {
         "Content-Type": "application/json",

@@ -31,7 +31,7 @@ app.post("/shop", async (req, res) => {
   }
 });
 
-app.post("/cart", async (req, res) => {
+app.post("/changecart", async (req, res) => {
   const body = req.body.Name;
   const amount = req.body.Amount;
   const _id = req.body._id;
