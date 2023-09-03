@@ -2,12 +2,7 @@ import "./Bar.css";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useEffect, useRef, useState } from "react";
-import {
-  collection,
-  getCountFromServer,
-  getDoc,
-  getDocs,
-} from "firebase/firestore";
+
 import ContactModal from "./Modal";
 import CartImage from "../Images/CartImage.jpg";
 

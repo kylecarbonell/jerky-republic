@@ -6,7 +6,6 @@ import SpicyBeef from "../Images/FireJerky.jpg";
 import OriginalBeef from "../Images/OriginalJerky.jpg";
 import MildBeef from "../Images/MildJerky.jpg";
 
-import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
 import { useEffect, useReducer, useRef, useState } from "react";
 
 import { Button } from "react-bootstrap";
