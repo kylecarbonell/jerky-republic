@@ -44,7 +44,7 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/admin/orders",
+    path: "/admin",
     element: <Admin />,
   },
 ]);
