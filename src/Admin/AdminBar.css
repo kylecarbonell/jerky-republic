@@ -1,0 +1,18 @@
+.Admin-Bar {
+  width: 20%;
+  height: 100%;
+  background-color: var(--yellow);
+  /* background-color: black; */
+
+  top: 0px;
+  bottom: 0px;
+  position: fixed;
+
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+div {
+  background-color: var(--yellow);
+}

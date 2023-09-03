@@ -1,7 +1,10 @@
+import AdminBar from "./AdminBar";
+
 function Admin() {
   return (
     <div>
-      <h1>Inventory</h1>
+      <AdminBar></AdminBar>
+      <h1>Hi</h1>
     </div>
   );
 }
