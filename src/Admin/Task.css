@@ -1,0 +1,94 @@
+.Task{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Task-Header{
+    grid-area: header;
+}
+
+.Task-Content{
+    grid-area: body;
+
+    height: 70%;
+
+    display:flex;
+    flex-direction: column;
+    
+    background-color: whitesmoke;
+    border-bottom: 2px solid gray;
+    border-top: 2px solid gray;
+
+    overflow-y: scroll;
+}
+
+.Task-Item{
+    height: 30%;
+    /* border-bottom: 2px solid gray; */
+    border-top: 2px solid gray;
+
+    display: grid;
+    
+    grid-template-columns: 0.5fr 6fr 0.5fr;
+    grid-template-rows: 1fr 0.75fr 1fr;
+    grid-template-areas: 
+        "check text text text buttons"
+        "check text text text buttons"
+        "check author author author buttons"
+    ;
+
+    column-gap: 3% ;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+.Check{
+    grid-area: check;
+    /* background-color: black; */
+    display: flex;
+    align-items: center;
+}
+
+.Check-Button{
+    width: 50%;
+    height: 25%;
+
+    display: block;
+}
+
+.Text{
+    grid-area: text;
+    display: flex;
+    align-items: center;
+
+    border-bottom: 2px solid gray;
+}
+
+.Author{
+    grid-area: author;
+    display: flex;
+    align-items: center;
+}
+
+.Buttons{
+
+    grid-area: buttons;
+    display: flex;
+    /* flex-direction: column; */
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Buttons-Check{
+    height: 70%;
+    width: 50%;
+    border: 1px solid black;
+}
+
+
+#Task-Text{
+    background-color: whitesmoke;
+}

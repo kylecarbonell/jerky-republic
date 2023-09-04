@@ -2,6 +2,8 @@ import AdminBar from "./AdminBar";
 import "./Admin.css"
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import OrderItem from "./OrderItem";
+import Task from "./Task";
 
 //Create props with dashboard content
 interface OrderProps {
@@ -19,52 +21,7 @@ interface OrderProps {
 function Admin() {
 
 
-  function OrderItem(props: OrderProps) {
-    const styleComp =
-      props.keyVal % 2 == 1 ?
-        { backgroundColor: "lightgray" } : { backgroundColor: "whitesmoke" };
 
-
-
-    return (
-      <div className="Order-Item" style={props.keyVal % 2 == 1 ? { backgroundColor: "lightgray" } : { backgroundColor: "whitesmoke" }}>
-        <h3 id="Order-Text"
-          style={styleComp}>
-          {props.orderId}
-        </h3>
-        <h3 id="Order-Text"
-          style={styleComp}>
-          {props.payMethod}
-        </h3>
-        <h3 id="Order-Text"
-          style={styleComp}>
-          {props.orderDate}
-        </h3>
-        <h3 id="Order-Text"
-          style={styleComp}>
-          {props.deliveryDate}
-        </h3>
-        <h3 id="Order-Text"
-          style={styleComp}>
-          {props.status}
-        </h3>
-        <h3 id="Order-Text"
-          style={styleComp}>
-          {props.total}
-        </h3>
-        {props.Header &&
-          <Link to={`/admin/order/view/${props.orderId}`} state={{ data: props.order }}>
-            <button style={props.keyVal % 2 == 1 ? { backgroundColor: "lightgray" } : { backgroundColor: "whitesmoke" }}>View</button>
-          </Link>
-
-        }
-        {
-          props.Header &&
-          <button style={props.keyVal % 2 == 1 ? { backgroundColor: "lightgray" } : { backgroundColor: "whitesmoke" }}>Edit</button>
-        }
-      </div>
-    )
-  }
 
 
   const [orders, setOrders] = useState([[]]);
@@ -154,7 +111,7 @@ function Admin() {
 
         </div>
         <div className="Content-Item Task">
-          <h1>Tasks</h1>
+          <Task />
         </div>
 
         <div className="Content-Item Review"><h1>Reviews</h1></div>
