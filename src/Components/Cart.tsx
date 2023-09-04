@@ -141,7 +141,14 @@ function Cart() {
   };
 
   const Checkout = async () => {
-    const data = { total: total, payment: "Cash" }
+    const token = window.localStorage.getItem("cartToken");
+    const data = {
+      total: total, payment: "Cash",
+      fire: orders.fire,
+      original: orders.original,
+      mild: orders.mild,
+      token: token,
+    }
     await fetch("http://localhost:8000/checkout", {
       method: "post",
       headers: { "Content-Type": "application/json" },

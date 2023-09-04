@@ -8,6 +8,7 @@ import Cart from "./Components/Cart";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
 import Admin from "./Admin/Admin";
+import Order from "./Admin/Order";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <Admin />,
+  },
+  {
+    path: "/admin/order/view/:id",
+    element: <Order />,
   },
 ]);
 

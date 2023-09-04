@@ -17,29 +17,38 @@
   overflow-y: scroll;
 
   display: flex;
-  flex-direction: row-reverse;
-  margin-right: 2%;
+  flex-direction: column;
 
   background-color: whitesmoke;
 }
 
+.AdminBar{
+  width:100%;
+}
+
 .Content{
   height: 100%;
-  width: 85%;
   
   display: grid;
 
+  padding-left: 1%;
+  padding-right: 1%;
+
+
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 15% auto;
+  grid-template-rows: 25% 75% 60%;
 
 
   grid-template-areas: 
   "pending cancel process income"
   "order order order order"
+  "task task review review"
   ;
 
-  row-gap: 1%;
+  row-gap: 2%;
   column-gap: 3%;
+
+  overflow-y: scroll;
 }
 
 .Content-Item{
@@ -48,18 +57,22 @@
 
 .Pending{
   grid-area: pending;
+  background-color: var(--blue);
 }
 
 .Cancel{
   grid-area: cancel;
+  background-color: var(--blue);
 }
 
-.Proc{
+.Process{
   grid-area: process;
+  background-color: var(--blue);
 }
 
-.Pending{
+.Income{
   grid-area: income;
+  background-color: var(--blue);
 }
 
 .Orders{
@@ -84,14 +97,35 @@
   border-bottom: 2px solid black;
 }
 
+.Task{
+  grid-area: task;
+  background-color: grey;
+  border: 2px solid black;
+}
+
+.Review{
+  grid-area: review;
+  background-color: grey;
+  border: 2px solid black;
+}
+
 #Admin-Text{
-  background-color: var(--red);
+  background-color: var(--blue);
   padding-top: 0.5%;
-  text-indent: 2%;
+  text-indent: 4%;
 
   font-size: 1.5rem;
 }
 
 #Order-Text{
   font-size:1.15rem;
+}
+
+#Order-Header{
+  background-color: var(--red);
+  padding-top: 1%;
+  text-indent: 1%;
+  width: 80%;
+
+  font-size: 1.5rem;
 }

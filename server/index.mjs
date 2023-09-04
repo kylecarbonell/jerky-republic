@@ -81,6 +81,13 @@ app.post("/checkout", async (req, res) => {
   try {
     const price = req.body.total;
     const payment = req.body.payment;
+    const orders = {
+      fire: req.body.fire,
+      original: req.body.original,
+      mild: req.body.mild,
+    };
+
+    const cartToken = req.body.token;
 
     let _id = uuid();
     _id = _id.slice(0, 8).toUpperCase();
@@ -108,9 +115,13 @@ app.post("/checkout", async (req, res) => {
       deliveryDate: deliveryDate,
       status: "Processing",
       total: price,
+      order: orders,
     };
 
+    const query = { _id: cartToken };
+    const val = { $set: { Fire: 0, Mild: 0, Original: 0 } };
     const result = await db.collection("Orders").insertOne(body);
+    const del = await db.collection("Cart").updateOne(query, val);
     res.send("GOOD").status(200);
   } catch (error) {
     res.send(error.message).status(500);
