@@ -1,6 +1,97 @@
-.Admin-Bar {
-  height: 50%;
-  width: 4%;
-  margin-left: 1%;
+:root {
+  --red: #fe4a49;
+  --blue: #009fb7;
+  --yellow: #fed766;
+  --grey: #d3d3da;
+  --white: #f4f4f8;
+}
+
+.Admin {
+  position: absolute;
+
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+
+  overflow-y: scroll;
+
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 2%;
+
+  background-color: whitesmoke;
+}
+
+.Content{
+  height: 100%;
+  width: 85%;
+  
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 15% auto;
+
+
+  grid-template-areas: 
+  "pending cancel process income"
+  "order order order order"
+  ;
+
+  row-gap: 1%;
+  column-gap: 3%;
+}
+
+.Content-Item{
+  /* background-color: grey; */
+}
+
+.Pending{
+  grid-area: pending;
+}
+
+.Cancel{
+  grid-area: cancel;
+}
+
+.Proc{
+  grid-area: process;
+}
+
+.Pending{
+  grid-area: income;
+}
+
+.Orders{
+  grid-area: order;
+}
+
+.Order-Header{
+  width: 100%;
+  display:flex;
   background-color: var(--red);
+  justify-content: space-between;
+}
+
+.Order-Item{
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 2fr 1.5fr 1fr 0.25fr 0.25fr;
+
+  column-gap: 1%;
+  
+  height: 10%;
+  align-items: center;
+  border-bottom: 2px solid black;
+}
+
+#Admin-Text{
+  background-color: var(--red);
+  padding-top: 0.5%;
+  text-indent: 2%;
+
+  font-size: 1.5rem;
+}
+
+#Order-Text{
+  font-size:1.15rem;
 }
