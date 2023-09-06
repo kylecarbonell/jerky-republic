@@ -1,5 +1,5 @@
 import AdminBar from "./AdminBar";
-import "./Admin.css"
+import "./Admin.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import OrderItem from "./OrderItem";
@@ -15,15 +15,10 @@ interface OrderProps {
   status: string;
   total: string;
   order: object;
-  Header: boolean
+  Header: boolean;
 }
 
 function Admin() {
-
-
-
-
-
   const [orders, setOrders] = useState([[]]);
   const [showBar, setShowBar] = useState(true);
 
@@ -31,29 +26,28 @@ function Admin() {
   const width = "100%";
 
   const getOrders = async () => {
-    const data = await fetch("http://localhost:8000/getOrders");
+    const data = await fetch("http://localhost:9000/getOrders");
 
     if (!data.ok) {
-      console.log("ERROR")
+      console.log("ERROR");
       return;
     }
 
     const json = await data.json();
-    setOrders(json)
-  }
+    setOrders(json);
+  };
 
   useEffect(() => {
     getOrders();
-  }, [])
+  }, []);
 
   return (
     <div className="Admin">
-
-      {
-        showBar && (<div className="AdminBar">
+      {showBar && (
+        <div className="AdminBar">
           <AdminBar></AdminBar>
-        </div>)
-      }
+        </div>
+      )}
 
       <div className="Content" style={{ width: width }}>
         <div className="Content-Item Pending">
@@ -85,11 +79,11 @@ function Admin() {
             order={{}}
             Header={false}
           />
-          {
-            orders.map((val: any, key: number) => {
-              if (key < 8) {
-                // console.log(key);
-                return <OrderItem
+          {orders.map((val: any, key: number) => {
+            if (key < 8) {
+              // console.log(key);
+              return (
+                <OrderItem
                   keyVal={key}
                   orderId={val._id}
                   payMethod={val.payment}
@@ -100,21 +94,19 @@ function Admin() {
                   order={val.order}
                   Header={true}
                 />
-              }
-              else {
-                return;
-              }
-            })
-          }
-
-
-
+              );
+            } else {
+              return;
+            }
+          })}
         </div>
         <div className="Content-Item Task">
           <Task />
         </div>
 
-        <div className="Content-Item Review"><h1>Reviews</h1></div>
+        <div className="Content-Item Review">
+          <h1>Reviews</h1>
+        </div>
       </div>
     </div>
   );

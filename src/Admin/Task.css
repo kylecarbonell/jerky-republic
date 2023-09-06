@@ -1,122 +1,121 @@
-.Task{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.Task {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
-    border: 2px solid black;
+  border: 2px solid black;
 }
 
-.Task-Header{
-    height: 15%;
-    display: flex;
-    align-items: center;
-    text-indent: 4%;
+.Task-Header {
+  height: 15%;
+  display: flex;
+  align-items: center;
+  text-indent: 4%;
 }
 
-.Task-Content{
-    grid-area: body;
+.Task-Content {
+  grid-area: body;
 
-    height: 70%;
+  height: 70%;
 
-    display:flex;
-    flex-direction: column;
-    
-    background-color: whitesmoke;
-    border-bottom: 2px solid gray;
-    border-top: 2px solid gray;
+  display: flex;
+  flex-direction: column;
 
-    overflow-y: scroll;
+  background-color: whitesmoke;
+  border-bottom: 2px solid gray;
+  border-top: 2px solid gray;
+
+  overflow-y: scroll;
 }
 
-.Task-Footer{
-    height: 15%;
-    width: 100%;
-    /* background-color: black; */
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
+.Task-Footer {
+  height: 15%;
+  width: 100%;
+  /* background-color: black; */
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
 }
 
-.Task-Item{
-    height: 30%;
-    /* border-bottom: 2px solid gray; */
-    border-top: 2px solid gray;
+.Task-Item {
+  height: 30%;
+  /* border-bottom: 2px solid gray; */
+  border-top: 2px solid gray;
 
-    display: grid;
-    
-    grid-template-columns: 0.5fr 6fr 0.5fr;
-    grid-template-rows: 1fr 0.75fr 1fr;
-    grid-template-areas: 
-        "check text text text buttons"
-        "check text text text buttons"
-        "check author author author buttons"
-    ;
+  display: grid;
 
-    column-gap: 3% ;
-    padding-left: 1%;
-    padding-right: 1%;
+  grid-template-columns: 0.5fr 6fr 0.5fr;
+  grid-template-rows: 1fr 0.75fr 1fr;
+  grid-template-areas:
+    "check text text text buttons"
+    "check text text text buttons"
+    "check author author author buttons";
+
+  column-gap: 3%;
+  padding-left: 1%;
+  padding-right: 1%;
 }
 
-.Check{
-    grid-area: check;
-    /* background-color: black; */
-    display: flex;
-    align-items: center;
+.Check {
+  grid-area: check;
+  /* background-color: black; */
+  display: flex;
+  align-items: center;
 }
 
-.Check-Button{
-    width: 50%;
-    height: 25%;
+.Check-Button {
+  width: 50%;
+  height: 25%;
 
-    display: block;
+  display: block;
 }
 
-.Text{
-    grid-area: text;
-    display: flex;
-    align-items: center;
+.Text {
+  grid-area: text;
+  display: flex;
+  align-items: center;
 
-    border-bottom: 2px solid gray;
+  border-bottom: 2px solid gray;
 }
 
-.Author{
-    grid-area: author;
-    display: flex;
-    align-items: center;
+.Author {
+  grid-area: author;
+  display: flex;
+  align-items: center;
 }
 
-.Buttons{
-
-    grid-area: buttons;
-    display: flex;
-    /* flex-direction: column; */
-    height: 100%;
-    align-items: center;
-    justify-content: space-between;
+.Buttons {
+  grid-area: buttons;
+  display: flex;
+  /* flex-direction: column; */
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.Buttons-Check{
-    height: 70%;
-    width: 50%;
-    border: 1px solid black;
+.Buttons-Check,
+.Buttons-Delete {
+  height: 70%;
+  width: 100%;
+  border: 1px solid black;
+  z-index: 10;
 }
 
-.Footer-Button{
-    width: 15%;
-    height: 75%;
+.Footer-Button {
+  width: 15%;
+  height: 75%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2%;
 }
 
-.Add-Task{
-    background-color: transparent;
+.Add-Task {
+  background-color: transparent;
 }
 
-
-#Task-Text{
-    background-color: whitesmoke;
+#Task-Text {
+  background-color: whitesmoke;
 }

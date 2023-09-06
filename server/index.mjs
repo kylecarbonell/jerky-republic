@@ -128,37 +128,6 @@ app.post("/checkout", async (req, res) => {
   }
 });
 
-app.get("/getOrders", async (req, res) => {
-  try {
-    const arr = await db.collection("Orders").find({}).toArray();
-    // console.log(arr);
-    res.status(200).send(arr);
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
-});
-
-app.get("/getTasks", async (req, res) => {
-  try {
-    const arr = await adminDB.collection("Tasks").find({}).toArray();
-    // console.log(arr);
-    res.status(200).send(arr);
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
-});
-
-app.post("/task", async (req, res) => {
-  try {
-    const task = req.body;
-    console.log(task);
-    const add = await adminDB.collection("Tasks").insertOne(task);
-    res.status(200).send("GOOD");
-  } catch (error) {
-    res.status(500).send(error);
-  }
-});
-
 app.listen(PORT, () => {
   console.log("Server running on port " + PORT);
 });
