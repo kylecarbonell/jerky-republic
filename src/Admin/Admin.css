@@ -22,31 +22,28 @@
   background-color: whitesmoke;
 }
 
-.AdminBar{
-  width:100%;
+.AdminBar {
+  width: 100%;
   height: 8%;
 
   margin-bottom: 1%;
 }
 
-.Content{
+.Content {
   height: 100%;
-  
+
   display: grid;
 
   padding-left: 1%;
   padding-right: 1%;
 
-
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 25% 75% 60%;
 
-
-  grid-template-areas: 
-  "pending cancel process income"
-  "order order order order"
-  "task task review review"
-  ;
+  grid-template-areas:
+    "pending cancel process income"
+    "order order order order"
+    "task task review review";
 
   row-gap: 2%;
   column-gap: 3%;
@@ -54,47 +51,46 @@
   overflow-y: scroll;
 }
 
-.Content-Item{
+.Content-Item {
   /* background-color: grey; */
 }
 
-.Pending{
+.Pending {
   grid-area: pending;
   background-color: var(--blue);
 }
 
-.Cancel{
+.Cancel {
   grid-area: cancel;
   background-color: var(--blue);
 }
 
-.Process{
+.Process {
   grid-area: process;
   background-color: var(--blue);
 }
 
-.Income{
+.Income {
   grid-area: income;
   background-color: var(--blue);
 }
 
-.Orders{
+.Orders {
   grid-area: order;
 }
 
-
-.Task{
+.Task {
   grid-area: task;
   /* background-color: grey; */
-  }
+}
 
-.Review{
+.Review {
   grid-area: review;
   background-color: grey;
   border: 2px solid black;
 }
 
-#Admin-Text{
+#Admin-Text {
   background-color: var(--blue);
   padding-top: 0.5%;
   text-indent: 4%;
