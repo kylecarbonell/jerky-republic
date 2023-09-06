@@ -47,7 +47,7 @@ function Task() {
               console.log(temp);
               console.log({ id: props.id, completed: temp });
 
-              setDelete([w{ id: props.id, completed: temp }]);
+              setDelete([{ id: props.id, completed: temp }]);
               console.log(del);
             }}
           ></input>
