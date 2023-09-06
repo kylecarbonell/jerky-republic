@@ -121,20 +121,7 @@ function Task() {
 
   return (
     <div className="Task">
-      <h1 className="Task-Header">
-        Tasks{" "}
-        <button
-          onClick={() => {
-            del.map((val: any) => {
-              if (val.completed) {
-                console.log(val);
-              }
-            });
-          }}
-        >
-          DELETE ALL
-        </button>
-      </h1>
+      <h1 className="Task-Header">Tasks </h1>
       <div className="Task-Content">
         {tasks.map((val: any, index: any) => {
           return (
