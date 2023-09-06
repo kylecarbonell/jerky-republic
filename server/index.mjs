@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 
-import db from "./Mongo.mjs";
+import { db, adminDB } from "./Mongo.mjs";
 const app = express();
 
 import dotenv from "dotenv";
@@ -135,6 +135,27 @@ app.get("/getOrders", async (req, res) => {
     res.status(200).send(arr);
   } catch (error) {
     res.status(500).send(error.message);
+  }
+});
+
+app.get("/getTasks", async (req, res) => {
+  try {
+    const arr = await adminDB.collection("Tasks").find({}).toArray();
+    // console.log(arr);
+    res.status(200).send(arr);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
+app.post("/task", async (req, res) => {
+  try {
+    const task = req.body;
+    console.log(task);
+    const add = await adminDB.collection("Tasks").insertOne(task);
+    res.status(200).send("GOOD");
+  } catch (error) {
+    res.status(500).send(error);
   }
 });
 

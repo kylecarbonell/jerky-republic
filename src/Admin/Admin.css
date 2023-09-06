@@ -86,8 +86,7 @@
 .Task{
   grid-area: task;
   /* background-color: grey; */
-  border: 2px solid black;
-}
+  }
 
 .Review{
   grid-area: review;
