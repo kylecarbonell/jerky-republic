@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
@@ -8,9 +8,7 @@ function getWindowDimensions() {
   };
 }
 
-export default function useWindowDimensions() {
-  const [navBar, setNavbar] = useState(false);
-
+function useWindowDimensions() {
   const [windowDimensions, setWindowDimensions] = useState(
     getWindowDimensions()
   );
@@ -18,9 +16,6 @@ export default function useWindowDimensions() {
   useEffect(() => {
     function handleResize() {
       setWindowDimensions(getWindowDimensions());
-      if (innerWidth > 1400) {
-        setNavbar(false);
-      }
     }
 
     window.addEventListener("resize", handleResize);

@@ -11,7 +11,6 @@ interface TaskItemProps {
 }
 
 function Task() {
-  const [del, setDelete] = useState([{}]);
   function TaskItem(props: TaskItemProps) {
     const onDelete = async (id: string) => {
       console.log(`DELTING ${id}`);
@@ -38,18 +37,6 @@ function Task() {
             key={props.index}
             type="checkbox"
             value={props.id}
-            onChange={(e: any) => {
-              // setDelete([
-              //   ...del,
-              //   { id: props.id, completed: e.target.checked },
-              // ]);
-              const temp = e.target.checked;
-              console.log(temp);
-              console.log({ id: props.id, completed: temp });
-
-              setDelete([{ id: props.id, completed: temp }]);
-              console.log(del);
-            }}
           ></input>
         </div>
         <div className="Text">{props.task}</div>

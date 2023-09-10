@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "run": "start dev",
+    "run": "concurrently \"npm start\" \"npm run dev\"",
     "start": "concurrently \"npm run shop\" \"npm run admin\"",
     "admin": "nodemon server/admin.mjs",
     "shop": "nodemon server/index.mjs",

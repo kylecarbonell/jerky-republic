@@ -11,6 +11,7 @@ import LoginIcon from "@mui/icons-material/Login";
 
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import useWindowDimensions from "../hooks/useWindowSize ";
 
 function Bar() {
   const [cartItems, setCartItems] = useState(0);
@@ -30,34 +31,6 @@ function Bar() {
   const onClickLogin = () => {
     setLogin(!showLogin);
   };
-
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(
-      getWindowDimensions()
-    );
-
-    useEffect(() => {
-      function handleResize() {
-        setWindowDimensions(getWindowDimensions());
-        if (innerWidth > 1400) {
-          setNavbar(false);
-        }
-      }
-
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    return windowDimensions;
-  }
 
   const { height, width } = useWindowDimensions();
 

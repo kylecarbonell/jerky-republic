@@ -8,32 +8,33 @@ import SiteMap from "./Components/SiteMap";
 import ObjectId from "bson-objectid";
 
 function App() {
-  if (window.localStorage.getItem("cartToken") == null) {
+  useEffect(() => {
+    if (window.localStorage.getItem("cartToken") == null) {
+      async function createCart() {
+        const id = new ObjectId();
+        console.log(id.toHexString());
+        const data = { _id: id };
 
-    async function createCart() {
-      const id = new ObjectId();
-      console.log(id.toHexString())
-      const data = { _id: id };
+        await fetch("http://localhost:8000/start", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        } as RequestInit)
+          .then(async (msg) => {
+            console.log(await msg.text());
+            window.localStorage.setItem("cartToken", id.toHexString());
+          })
+          .catch((error) => {
+            console.log("EROROR");
+            console.log(error);
+          });
+      }
 
-      await fetch("http://localhost:8000/start", {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      } as RequestInit).then(async (msg) => {
-        console.log(await msg.text());
-        window.localStorage.setItem("cartToken", id.toHexString());
-      }).catch((error) => {
-        console.log("EROROR")
-        console.log(error)
-      });
-
-
+      createCart();
     }
-
-    createCart();
-  }
+  }, []);
 
   return (
     <div className="App">
