@@ -11,7 +11,7 @@ import LoginIcon from "@mui/icons-material/Login";
 
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import useWindowDimensions from "../hooks/useWindowSize ";
+import { useWindowDimensions } from "../hooks/useWindowSize";
 
 function Bar() {
   const [cartItems, setCartItems] = useState(0);
