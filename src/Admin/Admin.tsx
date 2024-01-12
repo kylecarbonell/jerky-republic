@@ -103,10 +103,6 @@ function Admin() {
         <div className="Content-Item Task">
           <Task />
         </div>
-
-        <div className="Content-Item Review">
-          <h1>Reviews</h1>
-        </div>
       </div>
     </div>
   );

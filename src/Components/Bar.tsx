@@ -91,9 +91,9 @@ function Bar() {
               <Link className="Link" to="/Shop">
                 <button className="Button">Shop</button>
               </Link>
-              <Link className="Link" to="/">
+              <Link className="Link" to="/account/login">
                 <button className="Button" onClick={onClickLogin}>
-                  Subscribe
+                  Login
                 </button>
               </Link>
             </nav>
@@ -101,9 +101,6 @@ function Bar() {
         </div>
 
         <div className="Icon-Container">
-          <Link id="Icon" to="/account/login">
-            <PersonIcon id="Icon"></PersonIcon>
-          </Link>
           <Link id="Icon" to="/Cart">
             <ShoppingCartIcon id="Icon"></ShoppingCartIcon>
           </Link>

@@ -43,7 +43,7 @@
   grid-template-areas:
     "pending cancel process income"
     "order order order order"
-    "task task review review";
+    "task task task task";
 
   row-gap: 2%;
   column-gap: 3%;
