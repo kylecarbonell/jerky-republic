@@ -24,12 +24,20 @@ function Cart() {
   function Item(props: ItemProps) {
     const amount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+<<<<<<< HEAD
+    async function onChange(val: string, Name: string) {
+      const _id = window.localStorage.getItem("cartToken");
+      const Amount = parseInt(val);
+      console.log(typeof Amount);
+      console.log(Amount);
+=======
     async function onChange(e: any) {
       const _id = window.localStorage.getItem("cartToken");
       const Amount = parseInt(e.target.value);
       // console.log(typeof Amount);
       // console.log(Amount);
       const Name = e.target.name;
+>>>>>>> fd321253912ba6077515d315598e28d213f67347
       const data = { Name, Amount, _id };
 
       await fetch("http://localhost:8000/cart", {
@@ -38,10 +46,20 @@ function Cart() {
         body: JSON.stringify(data),
       } as RequestInit)
         .then(() => {
+<<<<<<< HEAD
+          if (Name == "Fire") {
+            setFire(Amount);
+          } else if (Name == "Mild") {
+            setMild(Amount);
+          } else {
+            setOriginal(Amount);
+          }
+=======
           setOrders((prev) => ({
             ...prev,
             [Name]: Amount
           }))
+>>>>>>> fd321253912ba6077515d315598e28d213f67347
         })
         .catch((error) => {
           console.log(error);
@@ -63,7 +81,11 @@ function Cart() {
                   defaultValue={props.itemCount}
                   onChange={async (e: any) => {
                     const name = props.itemName;
+<<<<<<< HEAD
+                    await onChange(e.target.value, name);
+=======
                     await onChange(e);
+>>>>>>> fd321253912ba6077515d315598e28d213f67347
                   }}
                 >
                   {amount.map((num, key) => {
@@ -86,6 +108,19 @@ function Cart() {
     );
   }
 
+<<<<<<< HEAD
+  const [sum, setSum] = useState(0);
+
+  const [fire, setFire] = useState(0);
+  const [original, setOriginal] = useState(0);
+  const [mild, setMild] = useState(0);
+
+  const priceFire = 7;
+  const priceMild = 6;
+  const priceOriginal = 5;
+  const priceTax = 0.09;
+
+=======
   const [test, setSum] = useState(0);
 
   // const [fire, setFire] = useState(0);
@@ -114,11 +149,16 @@ function Cart() {
   const tax = sum * priceTax;
   const total = sum + tax;
 
+>>>>>>> fd321253912ba6077515d315598e28d213f67347
   const GetData = async () => {
     const _id = window.localStorage.getItem("cartToken");
 
     const data = await fetch(
+<<<<<<< HEAD
+      `http://localhost:8888/.netlify/functions/cart?id=${_id}`
+=======
       `http://localhost:8000/cart?id=${_id}`
+>>>>>>> fd321253912ba6077515d315598e28d213f67347
     );
 
     if (!data.ok) {
@@ -127,6 +167,13 @@ function Cart() {
     }
 
     const json = await data.json();
+<<<<<<< HEAD
+    console.log(json);
+
+    setFire(json.Fire);
+    setOriginal(json.Original);
+    setMild(json.Mild);
+=======
     // console.log(json);
 
     setOrders({
@@ -136,6 +183,7 @@ function Cart() {
     })
 
     // console.log(orders)
+>>>>>>> fd321253912ba6077515d315598e28d213f67347
 
     return json;
   };
@@ -166,14 +214,28 @@ function Cart() {
     async function CalculateSum() {
       await GetData()
         .then(() => {
+<<<<<<< HEAD
+          const firePrice = fire * priceFire;
+          const originalPrice = original * priceOriginal;
+          const mildPrice = mild * priceMild;
+
+          const s = firePrice + originalPrice + mildPrice;
+
+          setSum(s);
+=======
           console.log("Success ")
+>>>>>>> fd321253912ba6077515d315598e28d213f67347
         })
         .catch((error) => {
           console.log(error.toString());
         });
     }
     CalculateSum();
+<<<<<<< HEAD
+  }, [fire, original, mild]);
+=======
   }, [orders.fire, orders.original, orders.mild]);
+>>>>>>> fd321253912ba6077515d315598e28d213f67347
 
   return (
     <>
@@ -184,6 +246,29 @@ function Cart() {
 
         <div className="Cart">
           <div className="Cart-Holder">
+<<<<<<< HEAD
+            {fire > 0 && (
+              <Item
+                itemName="Fire"
+                itemPrice={priceFire}
+                itemCount={fire}
+                itemImage={SpicyBeef}
+              ></Item>
+            )}
+            {mild > 0 && (
+              <Item
+                itemName="Mild"
+                itemPrice={priceMild}
+                itemCount={mild}
+                itemImage={MildBeef}
+              ></Item>
+            )}
+            {original > 0 && (
+              <Item
+                itemName="Original"
+                itemPrice={priceOriginal}
+                itemCount={original}
+=======
             {orders.fire > 0 && (
               <Item
                 itemName="Fire"
@@ -205,6 +290,7 @@ function Cart() {
                 itemName="Original"
                 itemPrice={prices.priceOriginal}
                 itemCount={orders.original}
+>>>>>>> fd321253912ba6077515d315598e28d213f67347
                 itemImage={OriginalBeef}
               ></Item>
             )}
@@ -214,12 +300,21 @@ function Cart() {
               <h1>Order Summary</h1>
               <p className="Payment-Items">Items : ${sum}</p>
               <p className="Payment-Items">
+<<<<<<< HEAD
+                Shipping and Handling : ${(sum * priceTax).toFixed(2)}
+              </p>
+              <p className="Payment-Items">Total : ${sum + sum * priceTax}</p>
+              <Link to="/checkout">
+                <Button className="Payment-Button">Place your order</Button>
+              </Link>
+=======
                 Shipping and Handling : ${(tax).toFixed(2)}
               </p>
               <p className="Payment-Items">Total : ${total}</p>
               {/* <Link to="/checkout"> ADD BACK LATER*/}
               <Button className="Payment-Button" onClick={() => { Checkout() }}>Place your order</Button>
               {/* </Link> */}
+>>>>>>> fd321253912ba6077515d315598e28d213f67347
 
               <Link to="/Shop">
                 <Button className="Payment-Button">Keep Shopping</Button>

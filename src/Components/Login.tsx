@@ -1,5 +1,4 @@
 import Bar from "./Bar";
-import "../App.css";
 import "./Login.css";
 import SiteMap from "./SiteMap";
 import { Link, useLocation } from "react-router-dom";
@@ -12,7 +11,9 @@ function Login() {
   return (
     <div className="App">
       <div className="Bar">
-        <Bar></Bar>
+        <Bar>
+
+        </Bar>
       </div>
 
       <form className="LoginForm">

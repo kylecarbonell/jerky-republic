@@ -1,7 +1,8 @@
-import "./Bar.css";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import { useEffect, useRef, useState } from "react";
+
+import "../index.css"
 
 import ContactModal from "./Modal";
 import CartImage from "../Images/CartImage.jpg";
@@ -13,7 +14,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useWindowDimensions } from "../hooks/useWindowSize";
 
-function Bar() {
+function Bar({ children }: { children: React.ReactNode }) {
   const [cartItems, setCartItems] = useState(0);
   const cartCount = useRef<number>(0);
   const [showContact, setContact] = useState(false);
@@ -38,53 +39,29 @@ function Bar() {
 
   return (
     <>
-      <div className="Bar">
-        {navbar && (
-          <div className="NavBar-Container">
-            <div className="ExitButton-Container">
-              <button
-                className="ExitButton"
-                onClick={() => {
-                  setNavbar(false);
-                }}
-              ></button>
-            </div>
-            <div className="NavLink-Container">
-              {SideBarData.map((val, key) => {
-                return (
-                  <Link key={key} className="NavLink" to={val.link}>
-                    <div className="NavBarIcon-Container">{val.icon}</div>
-                    <button className="NavBarButton">{val.title}</button>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        )}
-        {width < 1400 && (
-          <div className="NavButton-Container">
-            <button
-              className="NavButton"
-              onClick={() => {
-                setNavbar(!navbar);
-              }}
-            ></button>
-          </div>
-        )}
+      <div className="w-full h-[10vh] bg-white">
 
         {/* Add a font to this that matches the whole page */}
-        <div className="Links-Container">
-          {width > 1400 && (
-            <nav className="Bar-Container">
-              <Link className="Link" to="/">
-                <button className="Button">Home</button>
-              </Link>
-              <Link className="Link" to="/About">
-                <button className="Button">About</button>
-              </Link>
-            </nav>
-          )}
+        <div className="flex h-full w-full justify-between items-center px-8">
+          <h1 className="flex items-center justify-center">Jerky Republic</h1>
 
+          <nav className="h-full flex justify-between items-center space-x-8 ">
+            <a href="/" className="no-underline text-black" style={{ textDecoration: "none" }}>
+              Home
+            </a>
+            <a href="/shop" className="no-underline text-black" style={{ textDecoration: "none" }}>
+              Shop
+            </a>
+            <a href="/contact" className="no-underline text-black" style={{ textDecoration: "none" }}>
+              Contact
+            </a>
+          </nav>
+
+<<<<<<< HEAD
+        </div>
+
+
+=======
           <h1 className="Title">Jerky Republic</h1>
           {width > 1400 && (
             <nav className="Bar-Container">
@@ -106,9 +83,11 @@ function Bar() {
           </Link>
           <h1 id="Icon" style={{ paddingTop: "4%" }}></h1>
         </div>
+>>>>>>> fd321253912ba6077515d315598e28d213f67347
       </div>
 
-      <ContactModal show={showContact} setShow={setContact} />
+      {children}
+      {/* <ContactModal show={showContact} setShow={setContact} /> */}
     </>
   );
 }
