@@ -12,11 +12,6 @@
   flex-direction: column;
 }
 
-<<<<<<< HEAD
 #text {
-=======
-h1,
-div {
->>>>>>> 32f672df2b01f3090dad33175a5e75c12ae84222
   background-color: var(--yellow);
 }
