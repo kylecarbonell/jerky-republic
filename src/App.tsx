@@ -7,6 +7,7 @@ import SiteMap from "./Components/SiteMap";
 import ObjectId from "bson-objectid";
 
 function App() {
+<<<<<<< HEAD
   // if (window.localStorage.getItem("cartToken") == null) {
   const id = new ObjectId();
   async function createCart() {
@@ -26,6 +27,35 @@ function App() {
 
     createCart();
   }
+=======
+  useEffect(() => {
+    if (window.localStorage.getItem("cartToken") == null) {
+      async function createCart() {
+        const id = new ObjectId();
+        console.log(id.toHexString());
+        const data = { _id: id };
+
+        await fetch("http://localhost:8000/start", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        } as RequestInit)
+          .then(async (msg) => {
+            console.log(await msg.text());
+            window.localStorage.setItem("cartToken", id.toHexString());
+          })
+          .catch((error) => {
+            console.log("EROROR");
+            console.log(error);
+          });
+      }
+
+      createCart();
+    }
+  }, []);
+>>>>>>> fd321253912ba6077515d315598e28d213f67347
 
   return (
     <Bar>

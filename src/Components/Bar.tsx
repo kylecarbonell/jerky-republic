@@ -12,6 +12,7 @@ import LoginIcon from "@mui/icons-material/Login";
 
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useWindowDimensions } from "../hooks/useWindowSize";
 
 function Bar({ children }: { children: React.ReactNode }) {
   const [cartItems, setCartItems] = useState(0);
@@ -31,34 +32,6 @@ function Bar({ children }: { children: React.ReactNode }) {
   const onClickLogin = () => {
     setLogin(!showLogin);
   };
-
-  function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height,
-    };
-  }
-
-  function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(
-      getWindowDimensions()
-    );
-
-    useEffect(() => {
-      function handleResize() {
-        setWindowDimensions(getWindowDimensions());
-        if (innerWidth > 1400) {
-          setNavbar(false);
-        }
-      }
-
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    return windowDimensions;
-  }
 
   const { height, width } = useWindowDimensions();
 
@@ -84,9 +57,33 @@ function Bar({ children }: { children: React.ReactNode }) {
             </a>
           </nav>
 
+<<<<<<< HEAD
         </div>
 
 
+=======
+          <h1 className="Title">Jerky Republic</h1>
+          {width > 1400 && (
+            <nav className="Bar-Container">
+              <Link className="Link" to="/Shop">
+                <button className="Button">Shop</button>
+              </Link>
+              <Link className="Link" to="/account/login">
+                <button className="Button" onClick={onClickLogin}>
+                  Login
+                </button>
+              </Link>
+            </nav>
+          )}
+        </div>
+
+        <div className="Icon-Container">
+          <Link id="Icon" to="/Cart">
+            <ShoppingCartIcon id="Icon"></ShoppingCartIcon>
+          </Link>
+          <h1 id="Icon" style={{ paddingTop: "4%" }}></h1>
+        </div>
+>>>>>>> fd321253912ba6077515d315598e28d213f67347
       </div>
 
       {children}

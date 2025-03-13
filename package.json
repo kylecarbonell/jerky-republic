@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "run": "start dev",
-    "start": "nodemon server/index.mjs",
+    "run": "concurrently \"npm start\" \"npm run dev\"",
+    "start": "concurrently \"npm run shop\" \"npm run admin\"",
+    "admin": "nodemon server/admin.mjs",
+    "shop": "nodemon server/index.mjs",
     "test": "vitest",
     "dev": "vite",
     "build": "tsc && vite build",
@@ -44,6 +46,7 @@
     "uuid": "^11.1.0"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@types/bcryptjs": "^2.4.6",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
@@ -51,5 +54,16 @@
     "typescript": "^5.8.2",
     "vite": "^6.2.1",
     "vitest": "^3.0.8"
+=======
+    "@types/bcryptjs": "^2.4.2",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@types/uuid": "^9.0.3",
+    "@vitejs/plugin-react": "^3.1.0",
+    "concurrently": "^8.2.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0",
+    "vitest": "^0.34.2"
+>>>>>>> fd321253912ba6077515d315598e28d213f67347
   }
 }

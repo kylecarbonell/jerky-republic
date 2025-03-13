@@ -14,6 +14,6 @@ try {
   console.error(e);
 }
 
-let db = conn.db("JerkyRepublic");
+export const db = conn.db("JerkyRepublic");
+export const adminDB = conn.db("JerkyRepublicAdmin");
 
-export default db;
