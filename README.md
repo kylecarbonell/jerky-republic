@@ -87,3 +87,8 @@ Jerky Republic is built using modern web development technologies to ensure scal
 - **Frontend**: React.js, styled-components for UI
 - **Backend**: Node.js with Express.js for REST API
 - **Database**: MongoDB for storing user profiles, orders, and products
+
+---
+
+## Authors
+- James
